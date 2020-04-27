@@ -3,13 +3,19 @@
 
 #include "monstre.h"
 #include "relique.h"
+#include "enum.h"
 
 
-class Boss : Monstre{
+class Boss : public Monstre{
     public:
         Boss();
 
     private:
+        void donneTypeAleatoire();
+        void attributUnNom();
+        void donneNomAleatoire();
+        void attributRelique();
+        TypeBoss typeBoss;
         Relique drop;
 
 };

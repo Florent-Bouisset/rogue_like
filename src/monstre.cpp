@@ -14,8 +14,8 @@ Monstre::Monstre(){
 
 void Monstre::donneNomAleatoire(){
     // pas sur que la methode suivante soit bonne
-    vector<string> noms = { "Troll", "Nekker", "Dragon", "Foenard", "Arakas",
-     "Loup", "chien", "Noyeur", "Harpie"};
+    vector<string> noms = { "Troll", "Nekker", "Arakas",
+     "Loup", "chien", "Noyeur", "Harpie","Ours"};
     int a = rand()%noms.size();
     this->setNom(noms[a]);
 }

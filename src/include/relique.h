@@ -8,11 +8,14 @@ class Personnage;
 class Relique{
     public:
         Relique();
-        void modifierPV(Personnage& Cible, int quantite, typeAction action);
-        void modifierPVMax(Personnage& Cible, int quantite, typeAction action);
-        void modifierDegats(Personnage& Cible, int quantite, typeAction action);
+        Relique(TypeRelique unType);
+        void modifierPV(Personnage& cible, int quantite, typeAction action);
+        void modifierPVMax(Personnage& cible, int quantite, typeAction action);
+        void modifierDegats(Personnage& cible, int quantite, typeAction action);
+        void donnerBoost(Personnage& cible);
 
     private :
+        TypeRelique typeRelique;
 };
 
 
