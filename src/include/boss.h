@@ -1,21 +1,21 @@
 #ifndef BOSS_H
 #define BOSS_H
 
-#include "monstre.h"
+#include "monster.h"
 #include "enum.h"
-#include "relique.h"
+#include "relic.h"
 
-class Boss : public Monstre{
+class Boss : public Monster{
     public:
         Boss();
-        Relique getDrop();
+        Relic getDrop();
 
     private:
         void attributTypeAleatoire();
         void attributUnNom();
-        void attributRelique();
+        void attributRelic();
         TypeBoss typeBoss;
-        Relique drop;
+        Relic drop;
 
 };
 

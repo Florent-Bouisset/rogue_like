@@ -8,16 +8,16 @@ class Unite{
     public:
         Unite();
         Unite(std::string, int, int);
-        void modifierPV(int nbPV, typeAction);
-        void modifierPVMax(int nbPVMax, typeAction);
-        void modifierDegats(int nbDegats, typeAction);
+        void changeHP(int nbHP, typeAction);
+        void changeHPMax(int nbHPMax, typeAction);
+        void changeDegats(int nbDegats, typeAction);
         void attaquer(Unite& cible);
         bool estVivant();
         void afficheVie();
 
         //getter
-        int getPVMax();
-        int getPV();
+        int getHPMax();
+        int getHP();
         int getDegats();
         std::string getNom();
 
@@ -26,8 +26,8 @@ class Unite{
 
     private:
         std::string nom;
-        int PVMax;
-        int PV;
+        int HPMax;
+        int HP;
         int degats;
 };
 

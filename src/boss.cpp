@@ -1,15 +1,15 @@
 #include "include/boss.h"
-#include "include/relique.h"
+#include "include/relic.h"
 #include <vector>
 #include <string>
 
 using namespace std;
 
 Boss::Boss(){    
-    this->modifierPVMax(50, typeAction::AJOUTER);
-    this->modifierPV(50, typeAction::AJOUTER);
+    this->changeHPMax(50, typeAction::AJOUTER);
+    this->changeHP(50, typeAction::AJOUTER);
     attributTypeAleatoire();
-    attributRelique();
+    attributRelic();
     attributUnNom();
 }
 
@@ -56,43 +56,43 @@ void Boss::attributUnNom(){
     }
 }
 
-void Boss::attributRelique(){
+void Boss::attributRelic(){
     switch (typeBoss)
     {
     case COCATRIX:
-        drop = Relique(ALTERE);
+        drop = Relic(ALTERE);
         break;
 
     case DAME_BLANCHE:
-        drop = Relique(ARME_EMPOISONNEE);
+        drop = Relic(ARME_EMPOISONNEE);
         break;
 
     case GRIFFON_ROYAL:
-        drop = Relique(ANANAS);
+        drop = Relic(ANANAS);
         break;
     
     case KATAKAN:
-        drop = Relique(VIN_ROUGE);
+        drop = Relic(VIN_ROUGE);
         break;
 
     case WYVERN_ROYAL:
-        drop = Relique(ARME_EMPOISONNEE);
+        drop = Relic(ARME_EMPOISONNEE);
         break;
 
     case FOENARD:
-        drop = Relique(JUS_CITRON);
+        drop = Relic(JUS_CITRON);
         break;
 
     case LOUP_GAROU:
-        drop = Relique(ANANAS);
+        drop = Relic(ANANAS);
         break;
 
     default:
-        drop = Relique(ALTERE);
+        drop = Relic(ALTERE);
         break;
     }
 }
 
-Relique Boss::getDrop(){
+Relic Boss::getDrop(){
     return drop;
 }

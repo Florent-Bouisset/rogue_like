@@ -4,17 +4,17 @@
 
 #include "unite.h"
 
-class Monstre : public Unite{
+class Monster : public Unite{
     public:
-        Monstre();
+        Monster();
         int getGainOr();
         
     private:
         void attributTypeAleatoire();
         void attributUnNom();
-        int niveau;
+        int level;
         int gainOr;
-        TypeMonstre typeMonstre;
+        TypeMonster typeMonster;
 
 
 

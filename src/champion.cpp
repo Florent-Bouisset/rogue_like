@@ -1,28 +1,28 @@
-#include "include/personnage.h"
+#include "include/champion.h"
 #include "include/unite.h"
 #include "include/boss.h"
-#include "include/relique.h"
+#include "include/relic.h"
 #include <iostream>
 
 using namespace std;
 
-Personnage::Personnage(string nom) : Unite(nom, 100, 100){
+Champion::Champion(string nom) : Unite(nom, 100, 100){
     this->gold = 25;
 }
 
 
-void Personnage::afficheInfos(){
-    cout << getNom() << " : " << getPV() << " PV "  << getPVMax() << " PV Max " <<
+void Champion::afficheInfos(){
+    cout << getNom() << " : " << getHP() << " HP "  << getHPMax() << " HP Max " <<
     getDegats() << " Degats " << gold << " Gold "  << endl;
 }
 
 /**
- * modifier l'or du personnage 
+ * change l'or du champion 
  * il n'y a pas de limite d'or 
  * et il ne peut pas avoir moins de 0 Or
  *  */
 
-void Personnage::modifierOr(int montantOr, typeAction action){
+void Champion::changeOr(int montantOr, typeAction action){
     switch (action)
     {
     case AJOUTER:
@@ -46,13 +46,13 @@ void Personnage::modifierOr(int montantOr, typeAction action){
 
 
 /**
- * permet au personnage de combattre un monstre
+ * permet au champion de combattre un monstre
  * le combat se fait en plusieurs round et s'arrete quand un des 
  * deux combattant est mort
  * 
  */
 
-void Personnage::combattreMonstre(Monstre& cible){
+void Champion::fightAMonster(Monster& cible){
     int cmptRound = 1;
     cout << "######### AVANT COMBAT ########" << endl;
     this->afficheVie();
@@ -72,31 +72,31 @@ void Personnage::combattreMonstre(Monstre& cible){
 }
 
 
-void Personnage::combattreBoss(Boss& cible){
-    combattreMonstre(cible);
+void Champion::fightABoss(Boss& cible){
+    fightAMonster(cible);
     if(!cible.estVivant()){
  
     }
 }
 /**
  * Prend les recompenses d'un monstre 
- * donc augmente l'or du personnage
+ * donc augmente l'or du champion
  * 
  * */
 
-void Personnage::prendreRecompense(Monstre& cible){
-    this->modifierOr(cible.getGainOr(),AJOUTER);
-    cout << "recompense prise sur monstre" << endl;
+void Champion::prendreRecompense(Monster& cible){
+    this->changeOr(cible.getGainOr(),AJOUTER);
+    cout << "recompense prise sur monster" << endl;
 }
 
 /**
  * Prends les recompenses d'un boss
  * cad les recompenses classique d'un combat normal
- * + une relique special
+ * + une relic special
  * */
 
-void Personnage::prendreRecompense(Boss& cible){
-    prendreRecompense((Monstre&)cible);
+void Champion::prendreRecompense(Boss& cible){
+    prendreRecompense((Monster&)cible);
     cible.getDrop().donnerBoost(*this);
     cout << "recompense prise sur boss" << endl;
 }

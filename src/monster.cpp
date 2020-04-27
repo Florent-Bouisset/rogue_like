@@ -1,4 +1,4 @@
-#include "include/monstre.h"
+#include "include/monster.h"
 #include "include/unite.h"
 #include <stdlib.h>                     //rand()
 #include <vector>
@@ -6,21 +6,21 @@
 
 using namespace std;
 
-Monstre::Monstre(){    
-    this->modifierPVMax(50, typeAction::AJOUTER);
-    this->modifierPV(50, typeAction::AJOUTER);
+Monster::Monster(){    
+    this->changeHPMax(50, typeAction::AJOUTER);
+    this->changeHP(50, typeAction::AJOUTER);
     this->gainOr = 12;
     attributTypeAleatoire();
     attributUnNom();
 }
 
 
-void Monstre::attributTypeAleatoire(){
-    typeMonstre = TypeMonstre(rand() % COMPTEUR_MONSTRE);
+void Monster::attributTypeAleatoire(){
+    typeMonster = TypeMonster(rand() % COMPTEUR_MONSTRE);
 }
 
-void Monstre::attributUnNom(){
-    switch (typeMonstre)
+void Monster::attributUnNom(){
+    switch (typeMonster)
     {
     case NEKKER:
         setNom("Nekker");
@@ -59,6 +59,6 @@ void Monstre::attributUnNom(){
     }
 }
 
-int Monstre::getGainOr(){
+int Monster::getGainOr(){
     return gainOr; 
 }

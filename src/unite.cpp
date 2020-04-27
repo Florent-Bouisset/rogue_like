@@ -7,38 +7,38 @@ using namespace std;
 
 Unite::Unite(){
     this->nom = "";
-    this->PV = 0;
-    this->PVMax = 0;
+    this->HP = 0;
+    this->HPMax = 0;
     this->degats = 10;
 }
 
-Unite::Unite(string nom, int PV, int PVMax){
+Unite::Unite(string nom, int HP, int HPMax){
     this->nom = nom;
-    this->PVMax = 0;
-    this->modifierPVMax(PVMax, typeAction::AJOUTER);
-    this->PV = PV;
+    this->HPMax = 0;
+    this->changeHPMax(HPMax, typeAction::AJOUTER);
+    this->HP = HP;
     this->degats = 15;
 }
 
 /**
- * Permet de faire gagner ou perdre des PV a l'unite
+ * Permet de faire gagner ou perdre des HP a l'unite
  * entrer un entier positif pour en faire gagner et negatif pour faire perdre
- * PV ne peuvent pas depasser les PV max ni etre plus bas que 0
+ * HP ne peuvent pas depasser les HP max ni etre plus bas que 0
  */
-void Unite::modifierPV(int nbPV, typeAction action){
+void Unite::changeHP(int nbHP, typeAction action){
     switch (action)
     {
     case AJOUTER:
-        PV += nbPV;
-        if(PV > PVMax){
-            PV = PVMax;
+        HP += nbHP;
+        if(HP > HPMax){
+            HP = HPMax;
         }
         break;
     
     case SOUSTRAIRE:
-        PV -= nbPV;
-        if(PV < 0){
-            PV = 0;
+        HP -= nbHP;
+        if(HP < 0){
+            HP = 0;
         }
         break;
     
@@ -49,25 +49,25 @@ void Unite::modifierPV(int nbPV, typeAction action){
 
 
 /**
- * Permet de faire gagner ou perdre des PV Max a l'unite
+ * Permet de faire gagner ou perdre des HP Max a l'unite
  * le parametre type Action decrit si on ajoute ou soustrait
- * PV Max ne peut pas etre plus bas que 1
+ * HP Max ne peut pas etre plus bas que 1
  */
-void Unite::modifierPVMax(int nbPVMax, typeAction action){
+void Unite::changeHPMax(int nbHPMax, typeAction action){
     switch (action)
     {
     case AJOUTER:
-        PVMax += nbPVMax;
+        HPMax += nbHPMax;
         break;
     
     case SOUSTRAIRE:
-        PVMax -= nbPVMax;
-        if(PVMax < 1){
-            PVMax = 1;
+        HPMax -= nbHPMax;
+        if(HPMax < 1){
+            HPMax = 1;
         }
-        //Si PV actuelle > Pv Max alors diminue les PV actuels
-        if(PV > PVMax){
-        PV = PVMax; 
+        //Si HP actuelle > Pv Max alors diminue les HP actuels
+        if(HP > HPMax){
+        HP = HPMax; 
         }
 
     default:
@@ -80,7 +80,7 @@ void Unite::modifierPVMax(int nbPVMax, typeAction action){
  * entrer un entier positif pour en faire gagner et negatif pour faire perdre
  * degats minimum = 1
  */
-void Unite::modifierDegats(int nbDegats, typeAction action){
+void Unite::changeDegats(int nbDegats, typeAction action){
     switch (action)
     {
     case AJOUTER:
@@ -100,7 +100,7 @@ void Unite::modifierDegats(int nbDegats, typeAction action){
 }
 
 bool Unite::estVivant(){
-    if(PV > 0){
+    if(HP > 0){
         return true;
     }
     else {
@@ -112,12 +112,12 @@ string Unite::getNom(){
     return nom;
 }
 
-int Unite::getPV(){
-    return PV;
+int Unite::getHP(){
+    return HP;
 }
 
-int Unite::getPVMax(){
-    return PVMax;
+int Unite::getHPMax(){
+    return HPMax;
 }
 
 int Unite::getDegats(){
@@ -125,11 +125,11 @@ int Unite::getDegats(){
 }
 
 void Unite::attaquer(Unite& cible){
-    cible.modifierPV(this->degats, typeAction::SOUSTRAIRE);
+    cible.changeHP(this->degats, typeAction::SOUSTRAIRE);
 }
 
 void Unite::afficheVie(){
-    cout << nom << " " << PV << " PV " << PVMax << " PVMax" << endl;
+    cout << nom << " " << HP << " HP " << HPMax << " HPMax" << endl;
 }
 
 void Unite::setNom(string nom){
