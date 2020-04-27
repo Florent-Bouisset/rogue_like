@@ -6,12 +6,12 @@
 
 using namespace std;
 
-Champion::Champion(string nom) : Fighter(nom, 100, 100){
+Champion::Champion(string name) : Fighter(name, 100, 100){
     this->gold = 25;
 }
 
 
-void Champion::afficheInfos(){
+void Champion::printInfos(){
     cout << getName() << " : " << getHP() << " HP "  << getMaxHP() << " HP Max " <<
     getDamage() << " Damage " << gold << " Gold "  << endl;
 }
@@ -22,20 +22,20 @@ void Champion::afficheInfos(){
  * et il ne peut pas avoir moins de 0 Or
  *  */
 
-void Champion::changeOr(int montantOr, ActionType action){
+void Champion::changeGold(int goldAmount, ActionType action){
     switch (action)
     {
-    case AJOUTER:
-        gold += montantOr;
+    case ADDITION:
+        gold += goldAmount;
         break;
 
-    case SOUSTRAIRE:
-        if(montantOr > gold){
+    case SOUSTRACT:
+        if(goldAmount > gold){
             gold = 0;
             break;
         }
         else {
-            gold = gold - montantOr;
+            gold = gold - goldAmount;
             break;
         }
         
@@ -53,28 +53,28 @@ void Champion::changeOr(int montantOr, ActionType action){
  */
 
 void Champion::fightAMonster(Monster& target){
-    int cmptRound = 1;
+    int roundCount = 1;
     cout << "######### AVANT COMBAT ########" << endl;
-    this->afficheVie();
-    target.afficheVie();
-    while(this->estVivant() && target.estVivant()){
-        this->attaquer(target);
-        target.attaquer(*this);
+    this->printHealth();
+    target.printHealth();
+    while(this->isAlive() && target.isAlive()){
+        this->attack(target);
+        target.attack(*this);
 
-         cout << "#######   ROUND "<< cmptRound <<"  #########" << endl;
-        this->afficheVie();
-        target.afficheVie();
-        cmptRound += 1;
+         cout << "#######   ROUND "<< roundCount <<"  #########" << endl;
+        this->printHealth();
+        target.printHealth();
+        roundCount += 1;
     }
 
     cout << "######## FIN DU COMBAT ######### \n";
-    this->afficheInfos();
+    this->printInfos();
 }
 
 
 void Champion::fightABoss(Boss& target){
     fightAMonster(target);
-    if(!target.estVivant()){
+    if(!target.isAlive()){
  
     }
 }
@@ -84,9 +84,9 @@ void Champion::fightABoss(Boss& target){
  * 
  * */
 
-void Champion::prendreRecompense(Monster& target){
-    this->changeOr(target.getGainOr(),AJOUTER);
-    cout << "recompense prise sur monster" << endl;
+void Champion::takeRewards(Monster& target){
+    this->changeGold(target.getGoldReward(), ADDITION);
+    cout << "recompense prise sur monstre" << endl;
 }
 
 /**
@@ -95,8 +95,8 @@ void Champion::prendreRecompense(Monster& target){
  * + une relic special
  * */
 
-void Champion::prendreRecompense(Boss& target){
-    prendreRecompense((Monster&)target);
+void Champion::takeRewards(Boss& target){
+    takeRewards((Monster&)target);
     target.getDrop().giveABoost(*this);
     cout << "recompense prise sur boss" << endl;
 }

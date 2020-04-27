@@ -7,9 +7,9 @@
 using namespace std;
 
 Monster::Monster(){    
-    this->changeMaxHP(50, ActionType::AJOUTER);
-    this->changeHP(50, ActionType::AJOUTER);
-    this->gainOr = 12;
+    this->changeMaxHP(50, ActionType::ADDITION);
+    this->changeHP(50, ActionType::ADDITION);
+    this->goldReward = 12;
     GiveARandomType();
     GiveAName();
 }
@@ -59,6 +59,6 @@ void Monster::GiveAName(){
     }
 }
 
-int Monster::getGainOr(){
-    return gainOr; 
+int Monster::getGoldReward(){
+    return goldReward; 
 }

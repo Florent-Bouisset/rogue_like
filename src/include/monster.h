@@ -7,13 +7,13 @@
 class Monster : public Fighter{
     public:
         Monster();
-        int getGainOr();
+        int getGoldReward();
         
     private:
         void GiveARandomType();
         void GiveAName();
         int level;
-        int gainOr;
+        int goldReward;
         MonsterType typeMonster;
 
 

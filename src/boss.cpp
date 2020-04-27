@@ -6,8 +6,8 @@
 using namespace std;
 
 Boss::Boss(){    
-    this->changeMaxHP(50, ActionType::AJOUTER);
-    this->changeHP(50, ActionType::AJOUTER);
+    this->changeMaxHP(50, ActionType::ADDITION);
+    this->changeHP(50, ActionType::ADDITION);
     GiveARandomType();
     GiveARelic();
     GiveAName();

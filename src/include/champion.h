@@ -10,13 +10,13 @@
 
 class Champion : public Fighter{
     public:
-        Champion(std::string nom);
-        void afficheInfos();
-        void changeOr(int montantOr, ActionType action);
+        Champion(std::string name);
+        void printInfos();
+        void changeGold(int goldAmount, ActionType action);
         void fightAMonster(Monster& target);
         void fightABoss(Boss& target);
-        void prendreRecompense(Monster& target);
-        void prendreRecompense(Boss& target);
+        void takeRewards(Monster& target);
+        void takeRewards(Boss& target);
 
 
     private:

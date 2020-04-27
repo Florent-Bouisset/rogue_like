@@ -29,25 +29,25 @@ void Relic::giveABoost(Champion& target){
     switch (typeRelic)
     {
     case ALTERE:
-        changeDamage(target, 3 , AJOUTER);
+        changeDamage(target, 3, ADDITION);
         break;
 
     case ANANAS:
-        changeMaxHP(target, 6, AJOUTER);
+        changeMaxHP(target, 6, ADDITION);
         break;
     
     case JUS_CITRON:
-        changeHP(target, 15, AJOUTER);
+        changeHP(target, 15, ADDITION);
         break;
 
     case VIN_ROUGE:
-        changeMaxHP(target, 5, SOUSTRAIRE);
-        changeHP(target,25, AJOUTER);
+        changeMaxHP(target, 5, SOUSTRACT);
+        changeHP(target, 25, ADDITION);
         break;
 
     case ARME_EMPOISONNEE:
-        changeHP(target, 10, SOUSTRAIRE);
-        changeDamage(target, 5, AJOUTER);
+        changeHP(target, 10, SOUSTRACT);
+        changeDamage(target, 5, ADDITION);
         break;
 
     default:

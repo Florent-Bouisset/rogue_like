@@ -11,9 +11,9 @@ class Fighter{
         void changeHP(int nbHP, ActionType);
         void changeMaxHP(int nbMaxHP, ActionType);
         void changeDamage(int nbDamage, ActionType);
-        void attaquer(Fighter& target);
-        bool estVivant();
-        void afficheVie();
+        void attack(Fighter& target);
+        bool isAlive();
+        void printHealth();
 
         //getter
         int getMaxHP();
@@ -25,7 +25,7 @@ class Fighter{
         void setName(std::string);
 
     private:
-        std::string nom;
+        std::string name;
         int MaxHP;
         int HP;
         int damage;
