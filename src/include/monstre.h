@@ -1,5 +1,5 @@
-#ifndef MONSTRE
-#define MONSTRE
+#ifndef MONSTRE_H
+#define MONSTRE_H
 
 
 #include "unite.h"

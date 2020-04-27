@@ -1,5 +1,6 @@
 #include "include/personnage.h"
 #include "include/unite.h"
+#include "include/relique.h"
 #include <iostream>
 
 using namespace std;

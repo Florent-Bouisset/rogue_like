@@ -1,5 +1,5 @@
-#ifndef PERSONNAGE
-#define PERSONNAGE
+#ifndef PERSONNAGE_H
+#define PERSONNAGE_H
 
 
 #include <string>
@@ -17,10 +17,8 @@ class Personnage : public Unite{
         void combattreMonstre(Monstre& cible);
 
     private:
-
         int gold;
-        
-        std::vector<Relique> reliques;
+        //std::vector<Relique> reliques;
 
 };
 

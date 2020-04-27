@@ -1,16 +1,16 @@
-#ifndef UNITE
-#define UNITE
+#ifndef UNITE_H
+#define UNITE_H
 
+#include "enum.h"
 #include <string>
 
 class Unite{
     public:
         Unite();
         Unite(std::string, int, int);
-        void gagnerPV(int nbPV);
-        void perdrePV(int nbPV);
-        void gagnerPVMax(int nbPVMax);
-        void perdrePVMax(int nbPVMax);
+        void modifierPV(int nbPV, typeAction);
+        void modifierPVMax(int nbPVMax, typeAction);
+        void modifierDegats(int nbDegats, typeAction);
         void attaquer(Unite& cible);
         bool estVivant();
         void afficheVie();

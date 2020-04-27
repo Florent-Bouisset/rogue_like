@@ -1,5 +1,6 @@
-#ifndef BOSS
-#define BOSS
+#ifndef BOSS_H
+#define BOSS_H
+
 #include "monstre.h"
 #include "relique.h"
 

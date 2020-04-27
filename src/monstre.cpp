@@ -7,12 +7,13 @@
 using namespace std;
 
 Monstre::Monstre(){    
-    this->gagnerPVMax(50);
-    this->gagnerPV(50);
+    this->modifierPVMax(50, typeAction::AJOUTER);
+    this->modifierPV(50, typeAction::AJOUTER);
     donneNomAleatoire();
 }
 
 void Monstre::donneNomAleatoire(){
+    // pas sur que la methode suivante soit bonne
     vector<string> noms = { "Troll", "Nekker", "Dragon", "Foenard", "Arakas",
      "Loup", "chien", "Noyeur", "Harpie"};
     int a = rand()%noms.size();
