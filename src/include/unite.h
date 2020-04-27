@@ -18,6 +18,7 @@ class Unite{
         //getter
         int getPVMax();
         int getPV();
+        int getDegats();
         std::string getNom();
 
         //setter

@@ -2,18 +2,17 @@
 #define BOSS_H
 
 #include "monstre.h"
-#include "relique.h"
 #include "enum.h"
-
+#include "relique.h"
 
 class Boss : public Monstre{
     public:
         Boss();
+        Relique getDrop();
 
     private:
-        void donneTypeAleatoire();
+        void attributTypeAleatoire();
         void attributUnNom();
-        void donneNomAleatoire();
         void attributRelique();
         TypeBoss typeBoss;
         Relique drop;

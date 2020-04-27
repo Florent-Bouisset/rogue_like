@@ -1,4 +1,5 @@
 #include "include/boss.h"
+#include "include/relique.h"
 #include <vector>
 #include <string>
 
@@ -7,23 +8,17 @@ using namespace std;
 Boss::Boss(){    
     this->modifierPVMax(50, typeAction::AJOUTER);
     this->modifierPV(50, typeAction::AJOUTER);
-    donneTypeAleatoire();
+    attributTypeAleatoire();
     attributRelique();
     attributUnNom();
 }
 
 
-void Boss::donneTypeAleatoire(){
+void Boss::attributTypeAleatoire(){
     typeBoss = TypeBoss(rand() % COMPTEUR_BOSS);
 }
 
-void Boss::donneNomAleatoire(){
-    // pas sur que la methode suivante soit bonne
-    vector<string> noms = { "Cocatrix", "Dame Blanche", "Griffon royal", "Katakan",
-    "Moires", "Wyvern royal", "Foenard", "Loup Garou"};
-    int a = rand()%noms.size();
-    this->setNom(noms[a]);
-}
+
 
 void Boss::attributUnNom(){
     switch (typeBoss)
@@ -96,4 +91,8 @@ void Boss::attributRelique(){
         drop = Relique(ALTERE);
         break;
     }
+}
+
+Relique Boss::getDrop(){
+    return drop;
 }

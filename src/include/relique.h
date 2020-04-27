@@ -1,9 +1,9 @@
 #ifndef RELIQUE_H
 #define RELIQUE_H
 
-
+#include "enum.h"
 class Personnage;
-#include "personnage.h"
+
 
 class Relique{
     public:

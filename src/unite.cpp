@@ -120,12 +120,16 @@ int Unite::getPVMax(){
     return PVMax;
 }
 
+int Unite::getDegats(){
+    return degats;
+}
+
 void Unite::attaquer(Unite& cible){
     cible.modifierPV(this->degats, typeAction::SOUSTRAIRE);
 }
 
 void Unite::afficheVie(){
-    cout << nom << " : PV = " << PV << " : PV Max = " << PVMax << endl;
+    cout << nom << " " << PV << " PV " << PVMax << " PVMax" << endl;
 }
 
 void Unite::setNom(string nom){

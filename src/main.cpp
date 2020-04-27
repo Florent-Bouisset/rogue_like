@@ -24,9 +24,10 @@ int main(){
 
     cout << mob1.getNom() <<endl;
     cout << boss1.getNom() <<endl;
-    //boss1.getNom(); 
-    guerrier.combattreMonstre(mob1);
-
+    //guerrier.combattreMonstre(mob1);
+    guerrier.combattreMonstre(boss1);
+    boss1.getDrop().donnerBoost(guerrier);
+    guerrier.afficheInfos();
 
 
     //FIN TEST

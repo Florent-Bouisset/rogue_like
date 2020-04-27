@@ -1,22 +1,25 @@
 #ifndef PERSONNAGE_H
 #define PERSONNAGE_H
 
-
+#include <vector>
 #include <string>
 #include "unite.h"
 #include "monstre.h"
 #include "relique.h"
-#include <vector>
+#include "boss.h"
 
 class Personnage : public Unite{
     public:
         Personnage(std::string nom);
         void afficheInfos();
-        void gagnerOr(int montantOr);
-        bool depenserOr(int montantOr);
+        void modifierOr(int montantOr, typeAction action);
         void combattreMonstre(Monstre& cible);
+        void combattreBoss(Boss& cible);
+        void prendreRecommpense(Monstre& cible);
+
 
     private:
+        
         int gold;
         //std::vector<Relique> reliques;
 

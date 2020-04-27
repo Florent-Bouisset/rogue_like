@@ -1,5 +1,6 @@
 #include "include/relique.h"
 #include "include/enum.h"
+#include "include/personnage.h"
 
 
 using namespace std;

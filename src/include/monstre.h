@@ -8,10 +8,12 @@ class Monstre : public Unite{
     public:
         Monstre();
         
-
     private:
-        void donneNomAleatoire();
+        void attributTypeAleatoire();
+        void attributUnNom();
         int niveau;
+        int gainOr;
+        TypeMonstre typeMonstre;
 
 
 
