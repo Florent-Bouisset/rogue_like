@@ -18,8 +18,6 @@ void Boss::GiveARandomType(){
     bossType = BossType(rand() % COMPTEUR_BOSS);
 }
 
-
-
 void Boss::GiveAName(){
     switch (bossType)
     {

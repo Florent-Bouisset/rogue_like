@@ -1,6 +1,7 @@
 #include "include/relic.h"
 #include "include/enum.h"
 #include "include/champion.h"
+#include <string>
 
 
 using namespace std;
@@ -8,13 +9,13 @@ using namespace std;
 Relic::Relic(){
 }
 
-Relic::Relic(RelicType typeRelic){
-    this->typeRelic = typeRelic; 
+Relic::Relic(RelicType relicType){
+    this->relicType = relicType;
+    giveAName();
 }
 
 void Relic::changeHP(Champion& target, int amount, ActionType action){
     target.changeHP(amount,action);
-
 }
 
 void Relic::changeMaxHP(Champion& target, int amount, ActionType action){
@@ -26,7 +27,7 @@ void Relic::changeDamage(Champion& target, int amount, ActionType action){
 }
 
 void Relic::giveABoost(Champion& target){
-    switch (typeRelic)
+    switch (relicType)
     {
     case ALTERE:
         changeDamage(target, 3, ADDITION);
@@ -55,3 +56,38 @@ void Relic::giveABoost(Champion& target){
     }
 }
 
+void Relic::giveARandomType(){
+    relicType = RelicType(rand() % COMPTEUR_RELIQUE);
+}
+
+void Relic::giveAName(){
+    switch (relicType)
+    {
+    case ALTERE:
+        name = "Altere";
+        break;
+
+    case ANANAS:
+        name = "Ananas";
+        break;
+    
+    case JUS_CITRON:
+        name = "Jus de citron";
+        break;
+
+    case VIN_ROUGE:
+        name = "Vin rouge";
+        break;
+
+    case ARME_EMPOISONNEE:
+        name = "Arme empoisonnee";
+        break;
+
+    default:
+        break;
+    }
+}
+
+string Relic::getName(){
+    return name;
+}

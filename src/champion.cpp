@@ -86,7 +86,8 @@ void Champion::fightABoss(Boss& target){
 
 void Champion::takeRewards(Monster& target){
     this->changeGold(target.getGoldReward(), ADDITION);
-    cout << "recompense prise sur monstre" << endl;
+    cout << "Ce combat vous donne " << target.getGoldReward() 
+        << " pièces d'or ! " << endl; 
 }
 
 /**
@@ -98,5 +99,6 @@ void Champion::takeRewards(Monster& target){
 void Champion::takeRewards(Boss& target){
     takeRewards((Monster&)target);
     target.getDrop().giveABoost(*this);
-    cout << "recompense prise sur boss" << endl;
+    cout << "Ce combat vous donne la relique " << 
+    target.getDrop().getName() << " ! " << endl;
 }
