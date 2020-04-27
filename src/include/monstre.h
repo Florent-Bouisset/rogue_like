@@ -7,6 +7,7 @@
 class Monstre : public Unite{
     public:
         Monstre();
+        int getGainOr();
         
     private:
         void attributTypeAleatoire();

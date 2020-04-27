@@ -75,10 +75,28 @@ void Personnage::combattreMonstre(Monstre& cible){
 void Personnage::combattreBoss(Boss& cible){
     combattreMonstre(cible);
     if(!cible.estVivant()){
-
+ 
     }
 }
+/**
+ * Prend les recompenses d'un monstre 
+ * donc augmente l'or du personnage
+ * 
+ * */
 
-void Personnage::prendreRecommpense(Monstre& cible){
-    this->modifierOr(10,AJOUTER);
+void Personnage::prendreRecompense(Monstre& cible){
+    this->modifierOr(cible.getGainOr(),AJOUTER);
+    cout << "recompense prise sur monstre" << endl;
+}
+
+/**
+ * Prends les recompenses d'un boss
+ * cad les recompenses classique d'un combat normal
+ * + une relique special
+ * */
+
+void Personnage::prendreRecompense(Boss& cible){
+    prendreRecompense((Monstre&)cible);
+    cible.getDrop().donnerBoost(*this);
+    cout << "recompense prise sur boss" << endl;
 }

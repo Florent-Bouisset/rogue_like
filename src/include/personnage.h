@@ -15,7 +15,8 @@ class Personnage : public Unite{
         void modifierOr(int montantOr, typeAction action);
         void combattreMonstre(Monstre& cible);
         void combattreBoss(Boss& cible);
-        void prendreRecommpense(Monstre& cible);
+        void prendreRecompense(Monstre& cible);
+        void prendreRecompense(Boss& cible);
 
 
     private:

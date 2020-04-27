@@ -26,7 +26,8 @@ int main(){
     cout << boss1.getNom() <<endl;
     //guerrier.combattreMonstre(mob1);
     guerrier.combattreMonstre(boss1);
-    boss1.getDrop().donnerBoost(guerrier);
+    guerrier.prendreRecompense(boss1);
+    //boss1.getDrop().donnerBoost(guerrier);
     guerrier.afficheInfos();
 
 

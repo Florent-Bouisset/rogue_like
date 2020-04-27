@@ -58,3 +58,7 @@ void Monstre::attributUnNom(){
         break;
     }
 }
+
+int Monstre::getGainOr(){
+    return gainOr; 
+}
