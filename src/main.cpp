@@ -22,12 +22,12 @@ int main(){
     Monster mob1 = Monster();
     Boss boss1 = Boss();
 
-    cout << mob1.getNom() <<endl;
-    cout << boss1.getNom() <<endl;
+    cout << mob1.getName() <<endl;
+    cout << boss1.getName() <<endl;
     //guerrier.fightAMonster(mob1);
     guerrier.fightAMonster(boss1);
     guerrier.prendreRecompense(boss1);
-    //boss1.getDrop().donnerBoost(guerrier);
+    //boss1.getDrop().giveABoost(guerrier);
     guerrier.afficheInfos();
 
 

@@ -4,18 +4,17 @@
 #include "enum.h"
 class Champion;
 
-
 class Relic{
     public:
         Relic();
-        Relic(TypeRelic unType);
-        void changeHP(Champion& cible, int quantite, typeAction action);
-        void changeHPMax(Champion& cible, int quantite, typeAction action);
-        void changeDegats(Champion& cible, int quantite, typeAction action);
-        void donnerBoost(Champion& cible);
+        Relic(RelicType unType);
+        void changeHP(Champion& target, int amount, ActionType action);
+        void changeMaxHP(Champion& target, int amount, ActionType action);
+        void changeDamage(Champion& target, int amount, ActionType action);
+        void giveABoost(Champion& target);
 
     private :
-        TypeRelic typeRelic;
+        RelicType typeRelic;
 };
 
 

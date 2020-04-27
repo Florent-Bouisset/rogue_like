@@ -6,49 +6,49 @@
 using namespace std;
 
 Boss::Boss(){    
-    this->changeHPMax(50, typeAction::AJOUTER);
-    this->changeHP(50, typeAction::AJOUTER);
-    attributTypeAleatoire();
-    attributRelic();
-    attributUnNom();
+    this->changeMaxHP(50, ActionType::AJOUTER);
+    this->changeHP(50, ActionType::AJOUTER);
+    GiveARandomType();
+    GiveARelic();
+    GiveAName();
 }
 
 
-void Boss::attributTypeAleatoire(){
-    typeBoss = TypeBoss(rand() % COMPTEUR_BOSS);
+void Boss::GiveARandomType(){
+    bossType = BossType(rand() % COMPTEUR_BOSS);
 }
 
 
 
-void Boss::attributUnNom(){
-    switch (typeBoss)
+void Boss::GiveAName(){
+    switch (bossType)
     {
     case COCATRIX:
-        setNom("Cocatrix");
+        setName("Cocatrix");
         break;
 
     case DAME_BLANCHE:
-        setNom("Dame Blanche");
+        setName("Dame Blanche");
         break;
 
     case GRIFFON_ROYAL:
-        setNom("Griffon Royal");
+        setName("Griffon Royal");
         break;
     
     case KATAKAN:
-        setNom("Katakan");
+        setName("Katakan");
         break;
 
     case WYVERN_ROYAL:
-        setNom("Wyvern Royal");
+        setName("Wyvern Royal");
         break;
 
     case FOENARD:
-        setNom("Foenard");
+        setName("Foenard");
         break;
 
     case LOUP_GAROU:
-        setNom("Loup-Garou");
+        setName("Loup-Garou");
         break;
 
     default:
@@ -56,8 +56,8 @@ void Boss::attributUnNom(){
     }
 }
 
-void Boss::attributRelic(){
-    switch (typeBoss)
+void Boss::GiveARelic(){
+    switch (bossType)
     {
     case COCATRIX:
         drop = Relic(ALTERE);

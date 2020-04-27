@@ -8,46 +8,46 @@ using namespace std;
 Relic::Relic(){
 }
 
-Relic::Relic(TypeRelic typeRelic){
+Relic::Relic(RelicType typeRelic){
     this->typeRelic = typeRelic; 
 }
 
-void Relic::changeHP(Champion& cible, int quantite, typeAction action){
-    cible.changeHP(quantite,action);
+void Relic::changeHP(Champion& target, int amount, ActionType action){
+    target.changeHP(amount,action);
 
 }
 
-void Relic::changeHPMax(Champion& cible, int quantite, typeAction action){
-    cible.changeHPMax(quantite, action);
+void Relic::changeMaxHP(Champion& target, int amount, ActionType action){
+    target.changeMaxHP(amount, action);
 }
 
-void Relic::changeDegats(Champion& cible, int quantite, typeAction action){
-    cible.changeDegats(quantite, action);
+void Relic::changeDamage(Champion& target, int amount, ActionType action){
+    target.changeDamage(amount, action);
 }
 
-void Relic::donnerBoost(Champion& cible){
+void Relic::giveABoost(Champion& target){
     switch (typeRelic)
     {
     case ALTERE:
-        changeDegats(cible, 3 , AJOUTER);
+        changeDamage(target, 3 , AJOUTER);
         break;
 
     case ANANAS:
-        changeHPMax(cible, 6, AJOUTER);
+        changeMaxHP(target, 6, AJOUTER);
         break;
     
     case JUS_CITRON:
-        changeHP(cible, 15, AJOUTER);
+        changeHP(target, 15, AJOUTER);
         break;
 
     case VIN_ROUGE:
-        changeHPMax(cible, 5, SOUSTRAIRE);
-        changeHP(cible,25, AJOUTER);
+        changeMaxHP(target, 5, SOUSTRAIRE);
+        changeHP(target,25, AJOUTER);
         break;
 
     case ARME_EMPOISONNEE:
-        changeHP(cible, 10, SOUSTRAIRE);
-        changeDegats(cible, 5, AJOUTER);
+        changeHP(target, 10, SOUSTRAIRE);
+        changeDamage(target, 5, AJOUTER);
         break;
 
     default:

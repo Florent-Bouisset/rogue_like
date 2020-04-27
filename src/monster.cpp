@@ -1,5 +1,5 @@
 #include "include/monster.h"
-#include "include/unite.h"
+#include "include/fighter.h"
 #include <stdlib.h>                     //rand()
 #include <vector>
 
@@ -7,54 +7,54 @@
 using namespace std;
 
 Monster::Monster(){    
-    this->changeHPMax(50, typeAction::AJOUTER);
-    this->changeHP(50, typeAction::AJOUTER);
+    this->changeMaxHP(50, ActionType::AJOUTER);
+    this->changeHP(50, ActionType::AJOUTER);
     this->gainOr = 12;
-    attributTypeAleatoire();
-    attributUnNom();
+    GiveARandomType();
+    GiveAName();
 }
 
 
-void Monster::attributTypeAleatoire(){
-    typeMonster = TypeMonster(rand() % COMPTEUR_MONSTRE);
+void Monster::GiveARandomType(){
+    typeMonster = MonsterType(rand() % COMPTEUR_MONSTRE);
 }
 
-void Monster::attributUnNom(){
+void Monster::GiveAName(){
     switch (typeMonster)
     {
     case NEKKER:
-        setNom("Nekker");
+        setName("Nekker");
         break;
 
     case ARAKAS:
-        setNom("Arakas");
+        setName("Arakas");
         break;
 
     case LOUP:
-        setNom("Loup");
+        setName("Loup");
         break;
     
     case CHIEN:
-        setNom("Chien");
+        setName("Chien");
         break;
 
     case NOYEUR:
-        setNom("Noyeur");
+        setName("Noyeur");
         break;
 
     case HARPIE:
-        setNom("Harpie");
+        setName("Harpie");
         break;
 
     case OURS:
-        setNom("Ours");
+        setName("Ours");
         break;
 
     case SIRENE:
-        setNom("Sirene");
+        setName("Sirene");
 
     default:
-        setNom("Loup bugge");
+        setName("Loup bugge");
         break;
     }
 }

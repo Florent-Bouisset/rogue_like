@@ -2,19 +2,19 @@
 #define MONSTRE_H
 
 
-#include "unite.h"
+#include "fighter.h"
 
-class Monster : public Unite{
+class Monster : public Fighter{
     public:
         Monster();
         int getGainOr();
         
     private:
-        void attributTypeAleatoire();
-        void attributUnNom();
+        void GiveARandomType();
+        void GiveAName();
         int level;
         int gainOr;
-        TypeMonster typeMonster;
+        MonsterType typeMonster;
 
 
 

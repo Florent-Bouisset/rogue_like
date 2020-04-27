@@ -1,19 +1,19 @@
 #include "include/champion.h"
-#include "include/unite.h"
+#include "include/fighter.h"
 #include "include/boss.h"
 #include "include/relic.h"
 #include <iostream>
 
 using namespace std;
 
-Champion::Champion(string nom) : Unite(nom, 100, 100){
+Champion::Champion(string nom) : Fighter(nom, 100, 100){
     this->gold = 25;
 }
 
 
 void Champion::afficheInfos(){
-    cout << getNom() << " : " << getHP() << " HP "  << getHPMax() << " HP Max " <<
-    getDegats() << " Degats " << gold << " Gold "  << endl;
+    cout << getName() << " : " << getHP() << " HP "  << getMaxHP() << " HP Max " <<
+    getDamage() << " Damage " << gold << " Gold "  << endl;
 }
 
 /**
@@ -22,7 +22,7 @@ void Champion::afficheInfos(){
  * et il ne peut pas avoir moins de 0 Or
  *  */
 
-void Champion::changeOr(int montantOr, typeAction action){
+void Champion::changeOr(int montantOr, ActionType action){
     switch (action)
     {
     case AJOUTER:
@@ -52,18 +52,18 @@ void Champion::changeOr(int montantOr, typeAction action){
  * 
  */
 
-void Champion::fightAMonster(Monster& cible){
+void Champion::fightAMonster(Monster& target){
     int cmptRound = 1;
     cout << "######### AVANT COMBAT ########" << endl;
     this->afficheVie();
-    cible.afficheVie();
-    while(this->estVivant() && cible.estVivant()){
-        this->attaquer(cible);
-        cible.attaquer(*this);
+    target.afficheVie();
+    while(this->estVivant() && target.estVivant()){
+        this->attaquer(target);
+        target.attaquer(*this);
 
          cout << "#######   ROUND "<< cmptRound <<"  #########" << endl;
         this->afficheVie();
-        cible.afficheVie();
+        target.afficheVie();
         cmptRound += 1;
     }
 
@@ -72,9 +72,9 @@ void Champion::fightAMonster(Monster& cible){
 }
 
 
-void Champion::fightABoss(Boss& cible){
-    fightAMonster(cible);
-    if(!cible.estVivant()){
+void Champion::fightABoss(Boss& target){
+    fightAMonster(target);
+    if(!target.estVivant()){
  
     }
 }
@@ -84,8 +84,8 @@ void Champion::fightABoss(Boss& cible){
  * 
  * */
 
-void Champion::prendreRecompense(Monster& cible){
-    this->changeOr(cible.getGainOr(),AJOUTER);
+void Champion::prendreRecompense(Monster& target){
+    this->changeOr(target.getGainOr(),AJOUTER);
     cout << "recompense prise sur monster" << endl;
 }
 
@@ -95,8 +95,8 @@ void Champion::prendreRecompense(Monster& cible){
  * + une relic special
  * */
 
-void Champion::prendreRecompense(Boss& cible){
-    prendreRecompense((Monster&)cible);
-    cible.getDrop().donnerBoost(*this);
+void Champion::prendreRecompense(Boss& target){
+    prendreRecompense((Monster&)target);
+    target.getDrop().giveABoost(*this);
     cout << "recompense prise sur boss" << endl;
 }

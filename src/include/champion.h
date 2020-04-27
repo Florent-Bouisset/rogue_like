@@ -3,20 +3,20 @@
 
 #include <vector>
 #include <string>
-#include "unite.h"
+#include "fighter.h"
 #include "monster.h"
 #include "relic.h"
 #include "boss.h"
 
-class Champion : public Unite{
+class Champion : public Fighter{
     public:
         Champion(std::string nom);
         void afficheInfos();
-        void changeOr(int montantOr, typeAction action);
-        void fightAMonster(Monster& cible);
-        void fightABoss(Boss& cible);
-        void prendreRecompense(Monster& cible);
-        void prendreRecompense(Boss& cible);
+        void changeOr(int montantOr, ActionType action);
+        void fightAMonster(Monster& target);
+        void fightABoss(Boss& target);
+        void prendreRecompense(Monster& target);
+        void prendreRecompense(Boss& target);
 
 
     private:
