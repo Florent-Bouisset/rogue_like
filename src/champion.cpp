@@ -1,5 +1,4 @@
 #include "include/champion.h"
-#include "include/fighter.h"
 #include "include/boss.h"
 #include "include/relic.h"
 #include <iostream>
@@ -87,7 +86,7 @@ void Champion::fightABoss(Boss& target){
 void Champion::takeRewards(Monster& target){
     this->changeGold(target.getGoldReward(), ADDITION);
     cout << "Ce combat vous donne " << target.getGoldReward() 
-        << " pièces d'or ! " << endl; 
+        << " pieces d'or ! " << endl; 
 }
 
 /**

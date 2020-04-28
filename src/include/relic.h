@@ -1,9 +1,16 @@
 #ifndef RELIQUE_H
 #define RELIQUE_H
 
+
+//=================================
+// forward declared dependencies
+class Champion;
+
+//=================================
+// included dependencies
 #include <string>
 #include "enum.h"
-class Champion;
+
 
 class Relic{
     public:
@@ -21,9 +28,6 @@ class Relic{
         RelicType relicType;
         std::string name;
 };
-
-
-
 
 
 #endif

@@ -1,12 +1,20 @@
 #ifndef PERSONNAGE_H
 #define PERSONNAGE_H
 
+
+
+//=================================
+// forward declared dependencies
+class Monster;
+class Boss;
+
+
+//=================================
+// included dependencies
 #include <vector>
 #include <string>
 #include "fighter.h"
-#include "monster.h"
-#include "relic.h"
-#include "boss.h"
+
 
 class Champion : public Fighter{
     public:

@@ -1,5 +1,4 @@
 #include "include/relic.h"
-#include "include/enum.h"
 #include "include/champion.h"
 #include <string>
 
@@ -11,7 +10,7 @@ Relic::Relic(){
 
 Relic::Relic(RelicType relicType){
     this->relicType = relicType;
-    giveAName();
+    this->giveAName();
 }
 
 void Relic::changeHP(Champion& target, int amount, ActionType action){
@@ -36,7 +35,7 @@ void Relic::giveABoost(Champion& target){
     case ANANAS:
         changeMaxHP(target, 6, ADDITION);
         break;
-    
+
     case JUS_CITRON:
         changeHP(target, 15, ADDITION);
         break;
@@ -70,7 +69,7 @@ void Relic::giveAName(){
     case ANANAS:
         name = "Ananas";
         break;
-    
+
     case JUS_CITRON:
         name = "Jus de citron";
         break;

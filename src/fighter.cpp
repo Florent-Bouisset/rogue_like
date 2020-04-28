@@ -34,18 +34,18 @@ void Fighter::changeHP(int nbHP, ActionType action){
             HP = MaxHP;
         }
         break;
-    
+
     case SOUSTRACT:
         HP -= nbHP;
         if(HP < 0){
             HP = 0;
         }
         break;
-    
+
     default:
         break;
-    }    
-} 
+    }
+}
 
 
 /**
@@ -59,7 +59,7 @@ void Fighter::changeMaxHP(int nbMaxHP, ActionType action){
     case ADDITION:
         MaxHP += nbMaxHP;
         break;
-    
+
     case SOUSTRACT:
         MaxHP -= nbMaxHP;
         if(MaxHP < 1){
@@ -67,13 +67,13 @@ void Fighter::changeMaxHP(int nbMaxHP, ActionType action){
         }
         //Si HP actuel > Max HP alors diminue les HP actuels
         if(HP > MaxHP){
-        HP = MaxHP; 
+        HP = MaxHP;
         }
 
     default:
         break;
     }
-} 
+}
 
 /**
  * Permet de faire gagner ou perdre des damage a l'fighter
@@ -86,7 +86,7 @@ void Fighter::changeDamage(int nbDamage, ActionType action){
     case ADDITION:
         damage += nbDamage;
         break;
-    
+
     case SOUSTRACT:
         damage -= nbDamage;
         if (damage < 1){
@@ -100,12 +100,7 @@ void Fighter::changeDamage(int nbDamage, ActionType action){
 }
 
 bool Fighter::isAlive(){
-    if(HP > 0){
-        return true;
-    }
-    else {
-        return false;
-    }
+    return (HP > 0);
 }
 
 string Fighter::getName(){

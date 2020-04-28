@@ -10,8 +10,8 @@ class Monster : public Fighter{
         int getGoldReward();
         
     private:
-        void GiveARandomType();
-        void GiveAName();
+        void giveARandomType();
+        void giveAName();
         int level;
         int goldReward;
         MonsterType typeMonster;

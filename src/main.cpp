@@ -16,8 +16,6 @@ int main(){
 
     //TEST
 
-
-
     Champion guerrier = Champion("Delmak");
     Monster mob1 = Monster();
     Boss boss1 = Boss();

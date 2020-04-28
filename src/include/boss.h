@@ -11,12 +11,11 @@ class Boss : public Monster{
         Relic getDrop();
 
     private:
-        void GiveARandomType();
-        void GiveAName();
-        void GiveARelic();
+        void giveARandomType();
+        void giveAName();
+        void giveARelic();
         BossType bossType;
         Relic drop;
-
 };
 
 #endif

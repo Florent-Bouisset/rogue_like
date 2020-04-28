@@ -1,25 +1,23 @@
 #include "include/monster.h"
-#include "include/fighter.h"
 #include <stdlib.h>                     //rand()
-#include <vector>
 
 
 using namespace std;
 
-Monster::Monster(){    
+Monster::Monster(){
     this->changeMaxHP(50, ActionType::ADDITION);
     this->changeHP(50, ActionType::ADDITION);
     this->goldReward = 12;
-    GiveARandomType();
-    GiveAName();
+    this->giveARandomType();
+    this->giveAName();
 }
 
 
-void Monster::GiveARandomType(){
+void Monster::giveARandomType(){
     typeMonster = MonsterType(rand() % COMPTEUR_MONSTRE);
 }
 
-void Monster::GiveAName(){
+void Monster::giveAName(){
     switch (typeMonster)
     {
     case NEKKER:
@@ -33,7 +31,7 @@ void Monster::GiveAName(){
     case LOUP:
         setName("Loup");
         break;
-    
+
     case CHIEN:
         setName("Chien");
         break;
@@ -60,5 +58,5 @@ void Monster::GiveAName(){
 }
 
 int Monster::getGoldReward(){
-    return goldReward; 
+    return goldReward;
 }

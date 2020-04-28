@@ -1,24 +1,23 @@
 #include "include/boss.h"
-#include "include/relic.h"
 #include <vector>
 #include <string>
 
 using namespace std;
 
-Boss::Boss(){    
+Boss::Boss(){
     this->changeMaxHP(50, ActionType::ADDITION);
     this->changeHP(50, ActionType::ADDITION);
-    GiveARandomType();
-    GiveARelic();
-    GiveAName();
+    this->giveARandomType();
+    this->giveARelic();
+    this->giveAName();
 }
 
 
-void Boss::GiveARandomType(){
+void Boss::giveARandomType(){
     bossType = BossType(rand() % COMPTEUR_BOSS);
 }
 
-void Boss::GiveAName(){
+void Boss::giveAName(){
     switch (bossType)
     {
     case COCATRIX:
@@ -32,7 +31,7 @@ void Boss::GiveAName(){
     case GRIFFON_ROYAL:
         setName("Griffon Royal");
         break;
-    
+
     case KATAKAN:
         setName("Katakan");
         break;
@@ -54,7 +53,7 @@ void Boss::GiveAName(){
     }
 }
 
-void Boss::GiveARelic(){
+void Boss::giveARelic(){
     switch (bossType)
     {
     case COCATRIX:
@@ -68,7 +67,7 @@ void Boss::GiveARelic(){
     case GRIFFON_ROYAL:
         drop = Relic(ANANAS);
         break;
-    
+
     case KATAKAN:
         drop = Relic(VIN_ROUGE);
         break;
