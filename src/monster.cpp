@@ -20,7 +20,8 @@ map<MonsterType, std::string> Monster::names = {
     {LOUP, "Loup"},
     {CHIEN, "Chien"},
     {NOYEUR, "Noyeur"},
-    {HARPIE, "Ours"},
+    {HARPIE, "Harpie"},
+    {OURS, "Ours"},
     {SIRENE, "Sirene"}
 };
 
