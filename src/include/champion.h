@@ -28,7 +28,7 @@ class Champion : public Fighter{
 
 
     private:
-        
+
         int gold;
         //std::vector<Relic> relics;
 

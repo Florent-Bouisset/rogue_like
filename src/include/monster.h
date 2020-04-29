@@ -8,7 +8,7 @@ class Monster : public Fighter{
     public:
         Monster();
         int getGoldReward();
-        
+
     private:
         void giveARandomType();
         void giveAName();

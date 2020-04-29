@@ -16,8 +16,8 @@ void Champion::printInfos(){
 }
 
 /**
- * change l'or du champion 
- * il n'y a pas de limite d'or 
+ * change l'or du champion
+ * il n'y a pas de limite d'or
  * et il ne peut pas avoir moins de 0 Or
  *  */
 
@@ -37,7 +37,7 @@ void Champion::changeGold(int goldAmount, ActionType action){
             gold = gold - goldAmount;
             break;
         }
-        
+
     default:
         break;
     }
@@ -46,9 +46,9 @@ void Champion::changeGold(int goldAmount, ActionType action){
 
 /**
  * permet au champion de combattre un monstre
- * le combat se fait en plusieurs round et s'arrete quand un des 
+ * le combat se fait en plusieurs round et s'arrete quand un des
  * deux combattant est mort
- * 
+ *
  */
 
 void Champion::fightAMonster(Monster& target){
@@ -74,19 +74,19 @@ void Champion::fightAMonster(Monster& target){
 void Champion::fightABoss(Boss& target){
     fightAMonster(target);
     if(!target.isAlive()){
- 
+
     }
 }
 /**
- * Prend les recompenses d'un monstre 
+ * Prend les recompenses d'un monstre
  * donc augmente l'or du champion
- * 
+ *
  * */
 
 void Champion::takeRewards(Monster& target){
     this->changeGold(target.getGoldReward(), ADDITION);
-    cout << "Ce combat vous donne " << target.getGoldReward() 
-        << " pieces d'or ! " << endl; 
+    cout << "Ce combat vous donne " << target.getGoldReward()
+        << " pieces d'or ! " << endl;
 }
 
 /**
@@ -98,6 +98,6 @@ void Champion::takeRewards(Monster& target){
 void Champion::takeRewards(Boss& target){
     takeRewards((Monster&)target);
     target.getDrop().giveABoost(*this);
-    cout << "Ce combat vous donne la relique " << 
+    cout << "Ce combat vous donne la relique " <<
     target.getDrop().getName() << " ! " << endl;
 }
