@@ -28,6 +28,13 @@ Fighter::Fighter(string name, int HP, int MaxHP){
 void Fighter::changeHP(int nbHP, ActionType action){
     switch (action)
     {
+    case SET:
+        HP = nbHP;
+        if(HP > MaxHP){
+            HP = MaxHP;
+        }
+        break;
+
     case ADDITION:
         HP += nbHP;
         if(HP > MaxHP){
@@ -56,6 +63,11 @@ void Fighter::changeHP(int nbHP, ActionType action){
 void Fighter::changeMaxHP(int nbMaxHP, ActionType action){
     switch (action)
     {
+
+    case SET:
+        MaxHP = nbMaxHP;
+        break;
+
     case ADDITION:
         MaxHP += nbMaxHP;
         break;
@@ -83,6 +95,11 @@ void Fighter::changeMaxHP(int nbMaxHP, ActionType action){
 void Fighter::changeDamage(int nbDamage, ActionType action){
     switch (action)
     {
+
+    case SET:
+        damage = nbDamage;
+        break;
+
     case ADDITION:
         damage += nbDamage;
         break;
