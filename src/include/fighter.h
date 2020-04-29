@@ -24,7 +24,7 @@ class Fighter{
         //setter
         void setName(std::string);
 
-    private:
+    protected:
         std::string name;
         int MaxHP;
         int HP;

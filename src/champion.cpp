@@ -97,7 +97,7 @@ void Champion::takeRewards(Monster& target){
 
 void Champion::takeRewards(Boss& target){
     takeRewards((Monster&)target);
-    target.getDrop().giveABoost(*this);
+    target.getRelicReward().giveABoost(*this);
     cout << "Ce combat vous donne la relique " <<
-    target.getDrop().getName() << " ! " << endl;
+    target.getRelicReward().getName() << " ! " << endl;
 }

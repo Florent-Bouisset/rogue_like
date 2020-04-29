@@ -7,11 +7,7 @@ using namespace std;
 
 
 Monster::Monster(){
-    this->changeMaxHP(50, ActionType::ADDITION);
-    this->changeHP(50, ActionType::ADDITION);
-    this->goldReward = 12;
     this->giveARandomType();
-    //this->giveANameFromMap();
     this->giveStatsFromMap();
 }
 

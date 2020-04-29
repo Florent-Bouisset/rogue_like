@@ -14,17 +14,18 @@ class Monster : public Fighter{
         int getGoldReward();
 
     private:
-
+        static std::map<MonsterType, Stats> predefinedStats;
         //METHODS
         void giveARandomType();
         void giveStatsFromMap();
 
+    protected:
         //ATTRIBUTES
         Stats stats;
         int level;
         int goldReward;
         MonsterType monsterType;
-        static std::map<MonsterType, Stats> predefinedStats;
+
 
 
 };

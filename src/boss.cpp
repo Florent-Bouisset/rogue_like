@@ -1,95 +1,62 @@
 #include "include/boss.h"
 #include <vector>
 #include <string>
+#include "include/stats.h"
 
 using namespace std;
 
 Boss::Boss(){
-    this->changeMaxHP(50, ActionType::ADDITION);
-    this->changeHP(50, ActionType::ADDITION);
     this->giveARandomType();
-    this->giveARelic();
-    this->giveAName();
+    this->giveStatsFromMap();
 }
 
+map<BossType, StatsBoss> Boss::predefinedStats = {
+    //{KEY, {string name, int damage, int HP, int HPmax, int goldReward}}
+    {COCATRIX, {"Cocatrix", 15, 90, 90, 35, RelicType::ALTERE}},
+    {DAME_BLANCHE, {"Dame Blanche", 18, 85, 85, 40, RelicType::ARME_EMPOISONNEE}},
+    {GRIFFON_ROYAL, {"Griffon Royal", 22, 75, 75, 48, RelicType::ANANAS}},
+    {KATAKAN, {"Katakan", 13, 110, 110, 38, RelicType::VIN_ROUGE}},
+    {WYVERN_ROYAL, {"Wyvern Royal", 17, 88, 88, 35, RelicType::ARME_EMPOISONNEE}},
+    {FOENARD, {"Foenard", 14, 90, 90, 28, RelicType::JUS_CITRON}},
+    {LOUP_GAROU, {"Loup Garou", 16, 80, 80, 33, RelicType::ANANAS}}
+};
 
 void Boss::giveARandomType(){
-    bossType = BossType(rand() % COMPTEUR_BOSS);
+    bossType = BossType(rand() % Boss::predefinedStats.size());
 }
 
-void Boss::giveAName(){
-    switch (bossType)
-    {
-    case COCATRIX:
-        setName("Cocatrix");
-        break;
 
-    case DAME_BLANCHE:
-        setName("Dame Blanche");
-        break;
+// search in the map and get the stats corresponding to the Monster type
+void Boss::giveStatsFromMap(){
+    if(predefinedStats.find(bossType) != predefinedStats.end()){
+        StatsBoss s = predefinedStats.find(bossType)->second;
 
-    case GRIFFON_ROYAL:
-        setName("Griffon Royal");
-        break;
+        //inherited attributes:
+        setName(s.name);
+        changeDamage(s.damage, ActionType::SET);
+        changeMaxHP(s.maxHP, ActionType::SET);
+        changeHP(s.HP, ActionType::SET);
+        goldReward = s.goldReward;
 
-    case KATAKAN:
-        setName("Katakan");
-        break;
+        //own attribute
+        relicReward = s.relicReward;
 
-    case WYVERN_ROYAL:
-        setName("Wyvern Royal");
-        break;
+    }
+    else{
+        //inherited attributes:
+        setName("Monstre inconnu");
+        changeDamage(5, ActionType::SET);
+        changeMaxHP(30, ActionType::SET);
+        changeHP(30, ActionType::SET);
+        goldReward = 10;
 
-    case FOENARD:
-        setName("Foenard");
-        break;
+        //own attribute
 
-    case LOUP_GAROU:
-        setName("Loup-Garou");
-        break;
-
-    default:
-        break;
+        relicReward = RelicType::ALTERE;
     }
 }
 
-void Boss::giveARelic(){
-    switch (bossType)
-    {
-    case COCATRIX:
-        drop = Relic(ALTERE);
-        break;
 
-    case DAME_BLANCHE:
-        drop = Relic(ARME_EMPOISONNEE);
-        break;
-
-    case GRIFFON_ROYAL:
-        drop = Relic(ANANAS);
-        break;
-
-    case KATAKAN:
-        drop = Relic(VIN_ROUGE);
-        break;
-
-    case WYVERN_ROYAL:
-        drop = Relic(ARME_EMPOISONNEE);
-        break;
-
-    case FOENARD:
-        drop = Relic(JUS_CITRON);
-        break;
-
-    case LOUP_GAROU:
-        drop = Relic(ANANAS);
-        break;
-
-    default:
-        drop = Relic(ALTERE);
-        break;
-    }
-}
-
-Relic Boss::getDrop(){
-    return drop;
+Relic Boss::getRelicReward(){
+    return relicReward;
 }

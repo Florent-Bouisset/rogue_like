@@ -22,10 +22,9 @@ int main(){
 
     cout << mob1.getName() <<endl;
     cout << boss1.getName() <<endl;
-    guerrier.fightAMonster(mob1);
-    //guerrier.fightAMonster(boss1);
-    //guerrier.takeRewards(boss1);
-    //boss1.getDrop().giveABoost(guerrier);
+    //guerrier.fightAMonster(mob1);
+    guerrier.fightAMonster(boss1);
+    guerrier.takeRewards(boss1);
     guerrier.printInfos();
 
 

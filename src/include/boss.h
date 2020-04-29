@@ -4,18 +4,25 @@
 #include "monster.h"
 #include "enum.h"
 #include "relic.h"
+#include "stats.h"
 
 class Boss : public Monster{
     public:
+        //CONSTRUCTORS
         Boss();
-        Relic getDrop();
 
-    private:
+        //GETTERS
+        Relic getRelicReward();
+
+    protected:
+        //METHODS
         void giveARandomType();
-        void giveAName();
-        void giveARelic();
+        void giveStatsFromMap();
+
+        //ATTRIBUTES
         BossType bossType;
-        Relic drop;
+        Relic relicReward;
+        static std::map<BossType, StatsBoss> predefinedStats;
 };
 
 #endif
