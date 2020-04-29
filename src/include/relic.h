@@ -9,7 +9,9 @@ class Champion;
 //=================================
 // included dependencies
 #include <string>
+#include <map>
 #include "enum.h"
+
 
 
 class Relic{
@@ -19,13 +21,17 @@ class Relic{
         void giveABoost(Champion& target);
         std::string getName();
 
-    private :
+    protected :
+        //Methods
         void giveARandomType();
-        void giveAName();
+        void giveNameFromMap();
         void changeHP(Champion& target, int amount, ActionType action);
         void changeMaxHP(Champion& target, int amount, ActionType action);
         void changeDamage(Champion& target, int amount, ActionType action);
+
+        //Attributes
         RelicType relicType;
+        static std::map<RelicType, std::string> namesMap;
         std::string name;
 };
 

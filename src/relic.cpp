@@ -10,7 +10,24 @@ Relic::Relic(){
 
 Relic::Relic(RelicType relicType){
     this->relicType = relicType;
-    this->giveAName();
+    this->giveNameFromMap();
+}
+
+map<RelicType, string> Relic::namesMap = {
+    {ALTERE, "Altere"},
+    {ANANAS, "Ananas"},
+    {JUS_CITRON, "Jus de citron"},
+    {VIN_ROUGE, "Vin rouge"},
+    {ARME_EMPOISONNEE, "Arme empoisonnee"}
+};
+
+void Relic::giveNameFromMap(){
+    if(namesMap.find(relicType) != namesMap.end()){
+        name = namesMap.find(relicType)->second;
+    }
+    else{
+        name = "Relique inconnue";
+    }
 }
 
 void Relic::changeHP(Champion& target, int amount, ActionType action){
@@ -56,36 +73,9 @@ void Relic::giveABoost(Champion& target){
 }
 
 void Relic::giveARandomType(){
-    relicType = RelicType(rand() % COMPTEUR_RELIQUE);
+    relicType = RelicType(rand() % namesMap.size());
 }
 
-void Relic::giveAName(){
-    switch (relicType)
-    {
-    case ALTERE:
-        name = "Altere";
-        break;
-
-    case ANANAS:
-        name = "Ananas";
-        break;
-
-    case JUS_CITRON:
-        name = "Jus de citron";
-        break;
-
-    case VIN_ROUGE:
-        name = "Vin rouge";
-        break;
-
-    case ARME_EMPOISONNEE:
-        name = "Arme empoisonnee";
-        break;
-
-    default:
-        break;
-    }
-}
 
 string Relic::getName(){
     return name;
