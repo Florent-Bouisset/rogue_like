@@ -1,7 +1,8 @@
 #ifndef MONSTRE_H
 #define MONSTRE_H
 
-
+#include <map>
+#include <string>
 #include "fighter.h"
 
 class Monster : public Fighter{
@@ -11,11 +12,11 @@ class Monster : public Fighter{
 
     private:
         void giveARandomType();
-        void giveAName();
+        void giveANameFromMap();
         int level;
         int goldReward;
-        MonsterType typeMonster;
-
+        MonsterType monsterType;
+        static std::map<MonsterType, std::string> names;
 
 
 };
