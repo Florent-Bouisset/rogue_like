@@ -15,14 +15,12 @@ class Boss : public Monster{
         Relic getRelicReward();
 
     protected:
-        //METHODS
-        void giveARandomType();
-        void giveStatsFromMap();
 
         //ATTRIBUTES
-        BossType bossType;
         Relic relicReward;
-        static std::map<BossType, StatsBoss> predefinedStats;
+
+    private:
+        friend class BossCreator;
 };
 
 #endif
