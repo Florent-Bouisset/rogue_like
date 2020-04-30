@@ -40,3 +40,15 @@ Boss* BossCreator::FactoryMethod(BossType type){
 
     return b;
 }
+
+
+Boss* BossCreator::FactoryMethod(){
+    BossType type = getARandomBossType();
+    return FactoryMethod(type);
+}
+
+
+BossType BossCreator::getARandomBossType(){
+    return (enum BossType)(rand()% BOSS_MAX_VALUE);
+}
+

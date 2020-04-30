@@ -35,12 +35,10 @@ int main(){
     mob3->printHealth();
 
     Boss* boss2 = BossCreator::FactoryMethod(COCATRIX);
-    Boss* boss3 = BossCreator::FactoryMethod(DAME_BLANCHE);
+    Boss* boss3 = BossCreator::FactoryMethod(); // Random factory
 
     boss2->printHealth();
     boss3->printHealth();
-
-
 
     //FIN TEST
     return 0;

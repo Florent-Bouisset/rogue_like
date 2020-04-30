@@ -37,3 +37,15 @@ Monster* MonsterCreator::FactoryMethod(MonsterType type){
 
     return m;
 }
+
+Monster* MonsterCreator::FactoryMethod(){
+    MonsterType type = getARandomMonsterType();
+    return FactoryMethod(type);
+}
+
+
+
+MonsterType MonsterCreator::getARandomMonsterType(){
+    return (enum MonsterType)(rand()% MONSTER_MAX_VALUE);
+
+}
