@@ -46,6 +46,6 @@ Monster* MonsterCreator::FactoryMethod(){
 
 
 MonsterType MonsterCreator::getARandomMonsterType(){
-    return (enum MonsterType)(rand()% MONSTER_MAX_VALUE);
+    return static_cast<enum MonsterType> (rand()%MONSTER_MAX_VALUE);
 
 }

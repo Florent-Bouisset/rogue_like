@@ -12,11 +12,11 @@ Fighter::Fighter(){
     this->damage = 10;
 }
 
-Fighter::Fighter(string name, int HP, int MaxHP){
-    this->name = name;
+Fighter::Fighter(string p_name, int p_HP, int p_MaxHP){
+    this->name = p_name;
     this->MaxHP = 0;
-    this->changeMaxHP(MaxHP, ActionType::ADDITION);
-    this->HP = HP;
+    this->changeMaxHP(p_MaxHP, ActionType::ADDITION);
+    this->HP = p_HP;
     this->damage = 15;
 }
 
@@ -144,6 +144,6 @@ void Fighter::printHealth() const{
     cout << name << " " << HP << " HP " << MaxHP << " MaxHP" << endl;
 }
 
-void Fighter::setName(string name){
-    this->name = name;
+void Fighter::setName(string p_name){
+    this->name = p_name;
 }

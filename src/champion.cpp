@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Champion::Champion(string name) : Fighter(name, 100, 100){
+Champion::Champion(string p_name) : Fighter(p_name, 100, 100){
     this->gold = 25;
 }
 
@@ -96,7 +96,7 @@ void Champion::takeRewards(Monster& target){
  * */
 
 void Champion::takeRewards(Boss& target){
-    takeRewards((Monster&)target);
+    takeRewards(static_cast<Monster&>(target));
     target.getRelicReward().giveABoost(*this);
     cout << "Ce combat vous donne la relique " <<
     target.getRelicReward().getName() << " ! " << endl;

@@ -49,6 +49,6 @@ Boss* BossCreator::FactoryMethod(){
 
 
 BossType BossCreator::getARandomBossType(){
-    return (enum BossType)(rand()% BOSS_MAX_VALUE);
+    return static_cast<enum BossType>(rand()% BOSS_MAX_VALUE);
 }
 

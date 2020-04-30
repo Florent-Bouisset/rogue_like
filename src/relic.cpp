@@ -8,8 +8,8 @@ using namespace std;
 Relic::Relic(){
 }
 
-Relic::Relic(RelicType relicType){
-    this->relicType = relicType;
+Relic::Relic(RelicType p_relicType){
+    this->relicType = p_relicType;
     this->giveNameFromMap();
 }
 
