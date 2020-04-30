@@ -17,32 +17,31 @@ map<BossType, BossStats> BossCreator::predefinedStats = {
 };
 
 
-Boss* BossCreator::FactoryMethod(BossType type){
-    Boss* b = new Boss();
+Boss BossCreator::FactoryMethod(BossType type){
+    Boss boss = Boss();
     if(predefinedStats.find(type) != predefinedStats.end()){
         BossStats s = predefinedStats.find(type)->second;
 
-        b->setName(s.name);
-        b->changeDamage(s.damage, ActionType::SET);
-        b->changeMaxHP(s.maxHP, ActionType::SET);
-        b->changeHP(s.HP, ActionType::SET);
-        b->goldReward = s.goldReward;
-        b->relicReward = s.relicReward;
+        boss.setName(s.name);
+        boss.changeDamage(s.damage, ActionType::SET);
+        boss.changeMaxHP(s.maxHP, ActionType::SET);
+        boss.changeHP(s.HP, ActionType::SET);
+        boss.goldReward = s.goldReward;
+        boss.relicReward = s.relicReward;
     }
     else{
-        b->setName("Monstre inconnu");
-        b->changeDamage(5, ActionType::SET);
-        b->changeMaxHP(30, ActionType::SET);
-        b->changeHP(30, ActionType::SET);
-        b->goldReward = 10;
-        b->relicReward = RelicType::ALTERE;
+        boss.setName("Monstre inconnu");
+        boss.changeDamage(5, ActionType::SET);
+        boss.changeMaxHP(30, ActionType::SET);
+        boss.changeHP(30, ActionType::SET);
+        boss.goldReward = 10;
+        boss.relicReward = RelicType::ALTERE;
     }
-
-    return b;
+    return boss;
 }
 
 
-Boss* BossCreator::FactoryMethod(){
+Boss BossCreator::FactoryMethod(){
     BossType type = getARandomBossType();
     return FactoryMethod(type);
 }

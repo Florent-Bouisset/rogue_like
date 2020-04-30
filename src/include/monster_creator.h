@@ -17,8 +17,8 @@ struct Stats
 class MonsterCreator{
     public:
         virtual ~MonsterCreator(){};
-        static Monster* FactoryMethod(MonsterType type);
-        static Monster* FactoryMethod();
+        static Monster FactoryMethod(MonsterType type);
+        static Monster FactoryMethod();
 
     private:
         static std::map<MonsterType, Stats> predefinedStats;

@@ -20,8 +20,8 @@ struct BossStats
 class BossCreator{
     public:
         virtual ~BossCreator(){};
-        static Boss* FactoryMethod(BossType type);
-        static Boss* FactoryMethod();
+        static Boss FactoryMethod(BossType type);
+        static Boss FactoryMethod();
 
     private:
 

@@ -12,7 +12,7 @@
 using namespace std;
 
 int main(){
-    srand(static_cast<unsigned int> (time(NULL)));
+    srand(static_cast<unsigned int> (time(nullptr)));
 
 
     //TEST
@@ -29,16 +29,16 @@ int main(){
     guerrier.printInfos();
     */
 
-    Monster* mob2 = MonsterCreator::FactoryMethod(NEKKER);
-    Monster* mob3 = MonsterCreator::FactoryMethod(ARAKAS);
-    mob2->printHealth();
-    mob3->printHealth();
+    Monster mob2 = MonsterCreator::FactoryMethod(NEKKER);
+    Monster mob3 = MonsterCreator::FactoryMethod(ARAKAS);
+    mob2.printHealth();
+    mob3.printHealth();
 
-    Boss* boss2 = BossCreator::FactoryMethod(COCATRIX);
-    Boss* boss3 = BossCreator::FactoryMethod(); // Random factory
+    Boss boss2 = BossCreator::FactoryMethod(COCATRIX);
+    Boss boss3 = BossCreator::FactoryMethod(); // Random factory
 
-    boss2->printHealth();
-    boss3->printHealth();
+    boss2.printHealth();
+    boss3.printHealth();
 
     //FIN TEST
     return 0;

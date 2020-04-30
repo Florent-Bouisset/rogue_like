@@ -16,29 +16,28 @@ map<MonsterType, Stats> MonsterCreator::predefinedStats = {
     {SIRENE,{"Sirene", 6, 38, 38, 11}}
 };
 
-Monster* MonsterCreator::FactoryMethod(MonsterType type){
-    Monster* m = new Monster();
+Monster MonsterCreator::FactoryMethod(MonsterType type){
+    Monster monster = Monster();
     if(predefinedStats.find(type) != predefinedStats.end()){
         Stats s = predefinedStats.find(type)->second;
 
-        m->setName(s.name);
-        m->changeDamage(s.damage, ActionType::SET);
-        m->changeMaxHP(s.maxHP, ActionType::SET);
-        m->changeHP(s.HP, ActionType::SET);
-        m->goldReward = s.goldReward;
+        monster.setName(s.name);
+        monster.changeDamage(s.damage, ActionType::SET);
+        monster.changeMaxHP(s.maxHP, ActionType::SET);
+        monster.changeHP(s.HP, ActionType::SET);
+        monster.goldReward = s.goldReward;
     }
     else{
-        m->setName("Monstre inconnu");
-        m->changeDamage(5, ActionType::SET);
-        m->changeMaxHP(30, ActionType::SET);
-        m->changeHP(30, ActionType::SET);
-        m->goldReward = 10;
+        monster.setName("Monstre inconnu");
+        monster.changeDamage(5, ActionType::SET);
+        monster.changeMaxHP(30, ActionType::SET);
+        monster.changeHP(30, ActionType::SET);
+        monster.goldReward = 10;
     }
-
-    return m;
+    return monster;
 }
 
-Monster* MonsterCreator::FactoryMethod(){
+Monster MonsterCreator::FactoryMethod(){
     MonsterType type = getARandomMonsterType();
     return FactoryMethod(type);
 }
