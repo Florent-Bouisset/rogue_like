@@ -7,6 +7,6 @@ Boss::Boss(){
 }
 
 
-Relic Boss::getRelicReward(){
+Relic Boss::getRelicReward() const{
     return relicReward;
 }

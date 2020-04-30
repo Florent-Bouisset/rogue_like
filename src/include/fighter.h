@@ -8,18 +8,18 @@ class Fighter{
     public:
         Fighter();
         Fighter(std::string, int, int);
-        void changeHP(int nbHP, ActionType);
-        void changeMaxHP(int nbMaxHP, ActionType);
-        void changeDamage(int nbDamage, ActionType);
+        void changeHP(const int nbHP, const ActionType);
+        void changeMaxHP(const int nbMaxHP, const ActionType);
+        void changeDamage(const int nbDamage, const ActionType);
         void attack(Fighter& target);
-        bool isAlive();
-        void printHealth();
+        bool isAlive() const;
+        void printHealth() const;
 
         //getter
-        int getMaxHP();
-        int getHP();
-        int getDamage();
-        std::string getName();
+        int getMaxHP() const;
+        int getHP() const;
+        int getDamage() const;
+        std::string getName() const;
 
         //setter
         void setName(std::string);

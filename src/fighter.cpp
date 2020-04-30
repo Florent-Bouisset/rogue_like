@@ -25,7 +25,7 @@ Fighter::Fighter(string name, int HP, int MaxHP){
  * entrer un entier positif pour en faire gagner et negatif pour faire perdre
  * HP ne peuvent pas depasser les HP max ni etre plus bas que 0
  */
-void Fighter::changeHP(int nbHP, ActionType action){
+void Fighter::changeHP(const int nbHP, const ActionType action){
     switch (action)
     {
     case SET:
@@ -60,7 +60,7 @@ void Fighter::changeHP(int nbHP, ActionType action){
  * le parametre type Action decrit si on ajoute ou soustrait
  * HP Max ne peut pas etre plus bas que 1
  */
-void Fighter::changeMaxHP(int nbMaxHP, ActionType action){
+void Fighter::changeMaxHP(const int nbMaxHP, const ActionType action){
     switch (action)
     {
 
@@ -92,7 +92,7 @@ void Fighter::changeMaxHP(int nbMaxHP, ActionType action){
  * entrer un entier positif pour en faire gagner et negatif pour faire perdre
  * damage minimum = 1
  */
-void Fighter::changeDamage(int nbDamage, ActionType action){
+void Fighter::changeDamage(const int nbDamage, const ActionType action){
     switch (action)
     {
 
@@ -116,23 +116,23 @@ void Fighter::changeDamage(int nbDamage, ActionType action){
     }
 }
 
-bool Fighter::isAlive(){
+bool Fighter::isAlive() const{
     return (HP > 0);
 }
 
-string Fighter::getName(){
+string Fighter::getName() const{
     return name;
 }
 
-int Fighter::getHP(){
+int Fighter::getHP() const{
     return HP;
 }
 
-int Fighter::getMaxHP(){
+int Fighter::getMaxHP() const{
     return MaxHP;
 }
 
-int Fighter::getDamage(){
+int Fighter::getDamage() const{
     return damage;
 }
 
@@ -140,7 +140,7 @@ void Fighter::attack(Fighter& target){
     target.changeHP(this->damage, ActionType::SOUSTRACT);
 }
 
-void Fighter::printHealth(){
+void Fighter::printHealth() const{
     cout << name << " " << HP << " HP " << MaxHP << " MaxHP" << endl;
 }
 

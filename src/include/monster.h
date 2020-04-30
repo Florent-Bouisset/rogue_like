@@ -8,7 +8,7 @@ class Monster : public Fighter{
         Monster();
 
         //GETTERS
-        int getGoldReward();
+        int getGoldReward() const;
 
     private:
         //METHODS

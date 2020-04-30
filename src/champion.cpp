@@ -10,7 +10,7 @@ Champion::Champion(string name) : Fighter(name, 100, 100){
 }
 
 
-void Champion::printInfos(){
+void Champion::printInfos() const{
     cout << getName() << " : " << getHP() << " HP "  << getMaxHP() << " HP Max " <<
     getDamage() << " Damage " << gold << " Gold "  << endl;
 }
@@ -21,7 +21,7 @@ void Champion::printInfos(){
  * et il ne peut pas avoir moins de 0 Or
  *  */
 
-void Champion::changeGold(int goldAmount, ActionType action){
+void Champion::changeGold(const int goldAmount, const ActionType action){
     switch (action)
     {
     case ADDITION:

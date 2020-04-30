@@ -11,7 +11,7 @@ class Boss : public Monster{
         Boss();
 
         //GETTERS
-        Relic getRelicReward();
+        Relic getRelicReward() const;
 
     protected:
 

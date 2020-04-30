@@ -10,6 +10,6 @@ Monster::Monster(){
 
 
 
-int Monster::getGoldReward(){
+int Monster::getGoldReward() const{
     return goldReward;
 }

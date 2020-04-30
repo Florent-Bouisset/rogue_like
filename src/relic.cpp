@@ -30,15 +30,15 @@ void Relic::giveNameFromMap(){
     }
 }
 
-void Relic::changeHP(Champion& target, int amount, ActionType action){
+void Relic::changeHP(Champion& target, const int amount, const ActionType action){
     target.changeHP(amount,action);
 }
 
-void Relic::changeMaxHP(Champion& target, int amount, ActionType action){
+void Relic::changeMaxHP(Champion& target, const int amount, const ActionType action){
     target.changeMaxHP(amount, action);
 }
 
-void Relic::changeDamage(Champion& target, int amount, ActionType action){
+void Relic::changeDamage(Champion& target, const int amount, const ActionType action){
     target.changeDamage(amount, action);
 }
 
@@ -77,6 +77,6 @@ void Relic::giveARandomType(){
 }
 
 
-string Relic::getName(){
+string Relic::getName() const{
     return name;
 }

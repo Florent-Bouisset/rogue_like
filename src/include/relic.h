@@ -19,15 +19,15 @@ class Relic{
         Relic();
         Relic(RelicType unType);
         void giveABoost(Champion& target);
-        std::string getName();
+        std::string getName() const;
 
     protected :
         //Methods
         void giveARandomType();
         void giveNameFromMap();
-        void changeHP(Champion& target, int amount, ActionType action);
-        void changeMaxHP(Champion& target, int amount, ActionType action);
-        void changeDamage(Champion& target, int amount, ActionType action);
+        void changeHP(Champion& target, const int amount, const ActionType action);
+        void changeMaxHP(Champion& target, const int amount, const ActionType action);
+        void changeDamage(Champion& target, const int amount, const ActionType action);
 
         //Attributes
         RelicType relicType;

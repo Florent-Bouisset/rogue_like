@@ -19,8 +19,8 @@ class Boss;
 class Champion : public Fighter{
     public:
         Champion(std::string name);
-        void printInfos();
-        void changeGold(int goldAmount, ActionType action);
+        void printInfos() const;
+        void changeGold(const int goldAmount, const ActionType action);
         void fightAMonster(Monster& target);
         void fightABoss(Boss& target);
         void takeRewards(Monster& target);
