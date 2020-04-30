@@ -4,7 +4,6 @@
 #include "monster.h"
 #include "enum.h"
 #include "relic.h"
-#include "stats.h"
 
 class Boss : public Monster{
     public:

@@ -1,6 +1,5 @@
 #include "include/monster.h"
-#include <stdlib.h>                     //rand()
-#include <map>
+
 
 
 using namespace std;

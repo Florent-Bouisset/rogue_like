@@ -34,7 +34,6 @@ int main(){
     mob2->printHealth();
     mob3->printHealth();
 
-
     Boss* boss2 = BossCreator::FactoryMethod(COCATRIX);
     Boss* boss3 = BossCreator::FactoryMethod(DAME_BLANCHE);
 

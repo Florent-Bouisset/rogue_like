@@ -4,7 +4,6 @@
 #include <map>
 #include <string>
 #include "fighter.h"
-#include "stats.h"
 
 class Monster : public Fighter{
     public:
@@ -20,11 +19,8 @@ class Monster : public Fighter{
 
     protected:
         //ATTRIBUTES
-        Stats stats;
         int level;
         int goldReward;
-
-
 
 };
 

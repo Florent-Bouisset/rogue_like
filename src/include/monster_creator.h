@@ -3,6 +3,16 @@
 enum MonsterType{NEKKER, ARAKAS, LOUP, CHIEN, NOYEUR, HARPIE,
     OURS, SIRENE};
 
+struct Stats
+{
+    public:
+        std::string name;
+        int damage;
+        int HP;
+        int maxHP;
+        int goldReward;
+};
+
 class MonsterCreator{
     public:
         virtual ~MonsterCreator(){};

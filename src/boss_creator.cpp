@@ -5,7 +5,7 @@
 using namespace std;
 
 
-map<BossType, StatsBoss> BossCreator::predefinedStats = {
+map<BossType, BossStats> BossCreator::predefinedStats = {
     //{KEY, {string name, int damage, int HP, int HPmax, int goldReward}}
     {COCATRIX, {"Cocatrix", 15, 90, 90, 35, RelicType::ALTERE}},
     {DAME_BLANCHE, {"Dame Blanche", 18, 85, 85, 40, RelicType::ARME_EMPOISONNEE}},
@@ -20,7 +20,7 @@ map<BossType, StatsBoss> BossCreator::predefinedStats = {
 Boss* BossCreator::FactoryMethod(BossType type){
     Boss* b = new Boss();
     if(predefinedStats.find(type) != predefinedStats.end()){
-        StatsBoss s = predefinedStats.find(type)->second;
+        BossStats s = predefinedStats.find(type)->second;
 
         b->setName(s.name);
         b->changeDamage(s.damage, ActionType::SET);
