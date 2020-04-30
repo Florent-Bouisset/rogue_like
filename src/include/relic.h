@@ -12,7 +12,7 @@ class Champion;
 #include <map>
 #include "enum.h"
 
-
+enum RelicType{ALTERE, ANANAS, JUS_CITRON, VIN_ROUGE, ARME_EMPOISONNEE};
 
 class Relic{
     public:

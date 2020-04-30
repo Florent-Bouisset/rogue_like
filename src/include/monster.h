@@ -1,8 +1,6 @@
 #ifndef MONSTRE_H
 #define MONSTRE_H
 
-#include <map>
-#include <string>
 #include "fighter.h"
 
 class Monster : public Fighter{
