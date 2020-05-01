@@ -71,12 +71,6 @@ void Champion::fightAMonster(Monster& target){
 }
 
 
-void Champion::fightABoss(Boss& target){
-    fightAMonster(target);
-    if(!target.isAlive()){
-
-    }
-}
 
 /**
  * Prend les recompenses d'un monstre

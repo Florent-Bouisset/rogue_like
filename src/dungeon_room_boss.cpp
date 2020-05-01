@@ -23,7 +23,7 @@ void DungeonRoomBoss::printRoomDescription(){
 
 void DungeonRoomBoss::championInteraction(Champion& champ){
     printRoomDescription();
-    champ.fightABoss(boss);
+    champ.fightAMonster(boss);
     if(!boss.isAlive()){
         champ.takeRewards(boss);
     }

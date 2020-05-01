@@ -17,7 +17,6 @@ class Champion : public Fighter{
         void printInfos() const;
         void changeGold(const int goldAmount, const ActionType action);
         void fightAMonster(Monster& target);
-        void fightABoss(Boss& target);
         void takeRewards(Monster& target);
         void takeRewards(Boss& target);
 
