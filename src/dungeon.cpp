@@ -7,26 +7,28 @@ using namespace std;
 Dungeon::Dungeon() : champion("Delmak")
 {
     roomAchieved = 0;
+    nbrOfRoomByLevel = 3;
 }
 
 
 int Dungeon::chooseNextRoom(){
     cout << "Choisissez la prochaine salle !" << endl;
-    cout << " 1 - Monstre" << endl;
-    cout << " 2 - Boss" << endl;
-    cout << " 3 - Marchand" <<endl;
+    
+    for (int i = 0; i < nbrOfRoomByLevel; i++){
+        cout << i << " - " << roomPossibilites.at(i)->roomAbstract() << endl;
+    }
 
     int answer = -1;
     do {
         cin >> answer;
     }
-    while((answer < 0) || (answer > 2));
-
+    while((answer < 0) || (answer > nbrOfRoomByLevel - 1));
+    
     return answer;
 }
 
 void Dungeon::generateNextRooms(){
-    int roomNb = 3;
+    int roomNb = nbrOfRoomByLevel;
 
     while (roomPossibilites.size() != 0){
         roomPossibilites.pop_back();

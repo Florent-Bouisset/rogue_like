@@ -10,6 +10,12 @@ DungeonRoomBoss::DungeonRoomBoss(){
 
 }
 
+string DungeonRoomBoss::roomAbstract(){
+    return "Une salle de boss avec des recompenses rares";
+}
+
+
+
 void DungeonRoomBoss::printRoomDescription(){
     cout << "Vous entrez dans une salle .. le boss " << boss.getName() << " apparait ! " << endl;
 

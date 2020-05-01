@@ -10,6 +10,10 @@ DungeonRoomMonster::DungeonRoomMonster(){
     monster = MonsterCreator::FactoryMethod();
 }
 
+string DungeonRoomMonster::roomAbstract(){
+    return "Une salle de monstre avec des petites recompenses";
+}
+
 void DungeonRoomMonster::printRoomDescription(){
     cout << "Vous entrez dans une salle banale .. un "<< monster.getName() << " apparait !" << endl;
 }

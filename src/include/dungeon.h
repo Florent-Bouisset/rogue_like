@@ -18,6 +18,7 @@ class Dungeon{
         int chooseNextRoom();
         void generateNextRooms();
         int roomAchieved;
+        int nbrOfRoomByLevel;
         std::vector<DungeonRoom*> roomPossibilites;
         Champion champion;
 
