@@ -7,7 +7,7 @@
 #include "include/boss.h"
 #include "include/monster_creator.h"
 #include "include/boss_creator.h"
-
+#include "include/dungeon.h"
 
 using namespace std;
 
@@ -28,7 +28,9 @@ int main(){
     guerrier.takeRewards(boss1);
     guerrier.printInfos();
     */
+    /*
 
+    //TEST 2
     Monster mob2 = MonsterCreator::FactoryMethod(NEKKER);
     Monster mob3 = MonsterCreator::FactoryMethod(ARAKAS);
     mob2.printHealth();
@@ -39,7 +41,11 @@ int main(){
 
     boss2.printHealth();
     boss3.printHealth();
-
+    */
     //FIN TEST
+
+    Dungeon myDungeon = Dungeon();
+    myDungeon.play();
+
     return 0;
 }
