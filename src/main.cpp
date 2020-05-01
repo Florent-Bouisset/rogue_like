@@ -8,6 +8,7 @@
 #include "include/monster_creator.h"
 #include "include/boss_creator.h"
 #include "include/dungeon.h"
+#include "include/marchand.h"
 
 using namespace std;
 
@@ -44,8 +45,21 @@ int main(){
     */
     //FIN TEST
 
-    Dungeon myDungeon = Dungeon();
-    myDungeon.play();
+    //Dungeon myDungeon = Dungeon();
+    //myDungeon.play();
+
+    Champion champ = Champion("Del");
+    champ.changeHP(50,SOUSTRACT);
+
+    champ.printInfos();
+
+    Merchant m = Merchant();
+    m.init();
+
+    Article article = Article::createArticle();
+    champ.buyArticle(article);
+
+    champ.printInfos();
 
     return 0;
 }

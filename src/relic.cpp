@@ -1,7 +1,8 @@
 #include "include/relic.h"
+
 #include "include/champion.h"
 #include <string>
-
+#include <memory>
 
 using namespace std;
 
@@ -79,4 +80,13 @@ void Relic::giveARandomType(){
 
 string Relic::getName() const{
     return name;
+}
+
+void Relic::interact(Champion& champion){
+    giveABoost(champion);
+}
+
+shared_ptr<Relic> Relic::createRelic(){
+    RelicType type = RelicType(rand() % namesMap.size());
+    return make_shared<Relic>(type);
 }

@@ -1,6 +1,8 @@
 #include "include/champion.h"
 #include "include/boss.h"
 #include "include/relic.h"
+#include "include/article.h"
+
 #include <iostream>
 
 using namespace std;
@@ -96,3 +98,21 @@ void Champion::takeRewards(Boss& target){
     cout << "Ce combat vous donne la relique " <<
     target.getRelicReward().getName() << " ! " << endl;
 }
+
+void Champion::buyArticle(Article& article){
+    if(canAfford(article)){
+        changeGold(article.getPrice(), ActionType::SOUSTRACT);
+        article.getItem()->interact(*this);
+
+
+    }
+    else
+    {
+        cout << "Pas assez d'or pour acheter cet article" << endl;
+    }
+}
+
+bool Champion::canAfford(Article& article){
+    return (gold >= article.getPrice());
+}
+
