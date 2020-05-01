@@ -1,7 +1,7 @@
 
 #include "include/dungeon_room.h"
 
-
+#include <memory>
 #include "include/dungeon_room_boss.h"
 #include "include/dungeon_room_monster.h"
 
@@ -10,22 +10,22 @@ using namespace std;
 DungeonRoom::DungeonRoom(){
 }
 
-DungeonRoom* DungeonRoom::createRoom(RoomType type){
+unique_ptr<DungeonRoom> DungeonRoom::createRoom(RoomType type){
     switch (type)
     {
     case RoomType::BOSS_ROOM:
-        return new DungeonRoomBoss();
+        return  make_unique<DungeonRoomBoss>();
 
-    case RoomType::MOSNTER_ROOM:
-        return new DungeonRoomMonster();
+    case RoomType::MONSTER_ROOM:
+        return make_unique<DungeonRoomMonster>();
 
     default:
-        return new DungeonRoomMonster();
+        return make_unique<DungeonRoomMonster>();
     }
 }
 
 
-DungeonRoom* DungeonRoom::createRoom(){
+unique_ptr<DungeonRoom> DungeonRoom::createRoom(){
     RoomType randomType = static_cast<enum RoomType> (rand()%ROOM_MAX_VALUE);
     return createRoom(randomType);
 }

@@ -19,7 +19,7 @@ class Dungeon{
         void generateNextRooms();
         int roomAchieved;
         int nbrOfRoomByLevel;
-        std::vector<DungeonRoom*> roomPossibilites;
+        std::vector<std::unique_ptr<DungeonRoom>> roomPossibilites;
         Champion champion;
 
 
