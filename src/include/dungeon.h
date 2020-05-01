@@ -8,11 +8,8 @@
 
 class Dungeon{
     public:
-
         Dungeon();
         void play();
-
-
 
     private:
         int chooseNextRoom();
@@ -21,8 +18,6 @@ class Dungeon{
         int nbrOfRoomByLevel;
         std::vector<std::unique_ptr<DungeonRoom>> roomPossibilites;
         Champion champion;
-
-
 
 };
 

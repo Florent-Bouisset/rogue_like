@@ -3,7 +3,6 @@
 using namespace std;
 
 Boss::Boss(){
-
 }
 
 

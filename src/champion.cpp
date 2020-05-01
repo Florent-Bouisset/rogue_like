@@ -77,6 +77,7 @@ void Champion::fightABoss(Boss& target){
 
     }
 }
+
 /**
  * Prend les recompenses d'un monstre
  * donc augmente l'or du champion

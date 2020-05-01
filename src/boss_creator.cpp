@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 map<BossType, BossStats> BossCreator::predefinedStats = {
     //{KEY, {string name, int damage, int HP, int HPmax, int goldReward}}
     {COCATRIX, {"Cocatrix", 15, 90, 90, 35, RelicType::ALTERE}},

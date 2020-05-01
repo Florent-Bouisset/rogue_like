@@ -1,18 +1,13 @@
 #ifndef PERSONNAGE_H
 #define PERSONNAGE_H
 
-
-
 //=================================
 // forward declared dependencies
 class Monster;
 class Boss;
 
-
 //=================================
 // included dependencies
-#include <vector>
-#include <string>
 #include "fighter.h"
 
 
@@ -26,11 +21,8 @@ class Champion : public Fighter{
         void takeRewards(Monster& target);
         void takeRewards(Boss& target);
 
-
     private:
-
         int gold;
-        //std::vector<Relic> relics;
 
 };
 

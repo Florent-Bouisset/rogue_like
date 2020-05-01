@@ -1,7 +1,6 @@
 #ifndef RELIQUE_H
 #define RELIQUE_H
 
-
 //=================================
 // forward declared dependencies
 class Champion;
@@ -31,8 +30,9 @@ class Relic{
 
         //Attributes
         RelicType relicType;
-        static std::map<RelicType, std::string> namesMap;
         std::string name;
+        static std::map<RelicType, std::string> namesMap;
+
 };
 
 

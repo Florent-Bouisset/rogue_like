@@ -14,7 +14,6 @@ class DungeonRoom{
         virtual void championInteraction(Champion& champ) = 0;
         static std::unique_ptr<DungeonRoom> createRoom(RoomType type);
         static std::unique_ptr<DungeonRoom> createRoom();
-
 };
 
 

@@ -2,7 +2,6 @@
 #define BOSS_H
 
 #include "monster.h"
-#include "enum.h"
 #include "relic.h"
 
 class Boss : public Monster{
@@ -14,7 +13,6 @@ class Boss : public Monster{
         Relic getRelicReward() const;
 
     protected:
-
         //ATTRIBUTES
         Relic relicReward;
 
