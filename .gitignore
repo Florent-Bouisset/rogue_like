@@ -6,3 +6,6 @@
 *.csv
 *.txt
 *.md
+moc_*
+makefile
+.qmake.stash

@@ -10,9 +10,12 @@
 #include "include/dungeon.h"
 #include "include/marchand.h"
 
+#include "include/fightergui.h"
+#include <QApplication>
+
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
     srand(static_cast<unsigned int>(time(nullptr)));
 
@@ -48,6 +51,9 @@ int main()
     //Dungeon myDungeon = Dungeon();
     //myDungeon.play();
 
+    //TEST 3
+
+    /*
     Champion champ = Champion("Del");
     champ.changeHP(50, SOUSTRACT);
 
@@ -60,6 +66,9 @@ int main()
     champ.buyArticle(article);
 
     champ.printInfos();
-
-    return 0;
+    */
+    QApplication a(argc, argv);
+    FighterGUI w;
+    w.show();
+    return a.exec();
 }
