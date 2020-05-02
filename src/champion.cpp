@@ -7,14 +7,15 @@
 
 using namespace std;
 
-Champion::Champion(string p_name) : Fighter(p_name, 100, 100){
+Champion::Champion(string p_name) : Fighter(p_name, 100, 100)
+{
     this->gold = 25;
+    illustrationPath = "image/fighter/champion/geralt.png";
 }
 
-
-void Champion::printInfos() const{
-    cout << getName() << " : " << getHP() << " HP "  << getMaxHP() << " HP Max " <<
-    getDamage() << " Damage " << gold << " Gold "  << endl;
+void Champion::printInfos() const
+{
+    cout << getName() << " : " << getHP() << " HP " << getMaxHP() << " HP Max " << getDamage() << " Damage " << gold << " Gold " << endl;
 }
 
 /**
@@ -23,7 +24,8 @@ void Champion::printInfos() const{
  * et il ne peut pas avoir moins de 0 Or
  *  */
 
-void Champion::changeGold(const int goldAmount, const ActionType action){
+void Champion::changeGold(const int goldAmount, const ActionType action)
+{
     switch (action)
     {
     case ADDITION:
@@ -31,11 +33,13 @@ void Champion::changeGold(const int goldAmount, const ActionType action){
         break;
 
     case SOUSTRACT:
-        if(goldAmount > gold){
+        if (goldAmount > gold)
+        {
             gold = 0;
             break;
         }
-        else {
+        else
+        {
             gold = gold - goldAmount;
             break;
         }
@@ -45,7 +49,6 @@ void Champion::changeGold(const int goldAmount, const ActionType action){
     }
 }
 
-
 /**
  * permet au champion de combattre un monstre
  * le combat se fait en plusieurs round et s'arrete quand un des
@@ -53,16 +56,18 @@ void Champion::changeGold(const int goldAmount, const ActionType action){
  *
  */
 
-void Champion::fightAMonster(Monster& target){
+void Champion::fightAMonster(Monster &target)
+{
     int roundCount = 1;
     cout << "######### AVANT COMBAT ########" << endl;
     this->printHealth();
     target.printHealth();
-    while(this->isAlive() && target.isAlive()){
+    while (this->isAlive() && target.isAlive())
+    {
         this->attack(target);
         target.attack(*this);
 
-         cout << "#######   ROUND "<< roundCount <<"  #########" << endl;
+        cout << "#######   ROUND " << roundCount << "  #########" << endl;
         this->printHealth();
         target.printHealth();
         roundCount += 1;
@@ -72,18 +77,17 @@ void Champion::fightAMonster(Monster& target){
     this->printInfos();
 }
 
-
-
 /**
  * Prend les recompenses d'un monstre
  * donc augmente l'or du champion
  *
  * */
 
-void Champion::takeRewards(Monster& target){
+void Champion::takeRewards(Monster &target)
+{
     this->changeGold(target.getGoldReward(), ADDITION);
     cout << "Ce combat vous donne " << target.getGoldReward()
-        << " pieces d'or ! " << endl;
+         << " pieces d'or ! " << endl;
 }
 
 /**
@@ -92,19 +96,19 @@ void Champion::takeRewards(Monster& target){
  * + une relic special
  * */
 
-void Champion::takeRewards(Boss& target){
-    takeRewards(static_cast<Monster&>(target));
+void Champion::takeRewards(Boss &target)
+{
+    takeRewards(static_cast<Monster &>(target));
     target.getRelicReward().giveABoost(*this);
-    cout << "Ce combat vous donne la relique " <<
-    target.getRelicReward().getName() << " ! " << endl;
+    cout << "Ce combat vous donne la relique " << target.getRelicReward().getName() << " ! " << endl;
 }
 
-void Champion::buyArticle(Article& article){
-    if(canAfford(article)){
+void Champion::buyArticle(Article &article)
+{
+    if (canAfford(article))
+    {
         changeGold(article.getPrice(), ActionType::SOUSTRACT);
         article.getItem()->interact(*this);
-
-
     }
     else
     {
@@ -112,7 +116,7 @@ void Champion::buyArticle(Article& article){
     }
 }
 
-bool Champion::canAfford(Article& article){
+bool Champion::canAfford(Article &article)
+{
     return (gold >= article.getPrice());
 }
-
