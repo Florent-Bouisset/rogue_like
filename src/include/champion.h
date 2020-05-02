@@ -11,22 +11,22 @@ class Article;
 // included dependencies
 #include "fighter.h"
 
+class Champion : public Fighter
+{
+public:
+    Champion();
+    void printInfos() const;
+    void fightAMonster(Monster &target);
+    void fightForOneTurn(Monster &target);
+    void takeRewards(Monster &target);
+    void takeRewards(Boss &target);
+    void buyArticle(Article &article);
+    bool canAfford(const Article &article) const;
+    void changeGold(const int goldAmount, const ActionType action);
+    int getGold() const;
 
-class Champion : public Fighter{
-    public:
-        Champion(std::string name);
-        void printInfos() const;
-        void fightAMonster(Monster& target);
-        void takeRewards(Monster& target);
-        void takeRewards(Boss& target);
-        void buyArticle(Article& article);
-        bool canAfford(Article& article);
-        void changeGold(const int goldAmount, const ActionType action);
-
-    private:
-        int gold;
-        
-
+protected:
+    int gold;
 };
 
 #endif

@@ -18,7 +18,7 @@ class Article
 public:
     Article(int price, std::shared_ptr<Item> item);
     void printArticle();
-    int getPrice();
+    int getPrice() const;
     std::shared_ptr<Item> getItem();
     static Article createArticle();
     static Article createArticle(ArticleType);

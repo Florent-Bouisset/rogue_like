@@ -10,20 +10,58 @@ CombatWindow::CombatWindow()
 
 void CombatWindow::setUp()
 {
-    attacker = new FighterGUI();
-    defender = new FighterGUI();
+    attackerWidget = new FighterGUI();
+    defenderWidget = new FighterGUI();
+
+    attackButton = new QPushButton("Attaquer");
+    rewardsButton = new QPushButton("Réclamer sa prime");
+
     QHBoxLayout *layout = new QHBoxLayout();
-    layout->addWidget(attacker);
-    layout->addWidget(defender);
+    layout->addWidget(attackerWidget);
+    layout->addWidget(attackButton);
+    layout->addWidget(rewardsButton);
+    layout->addWidget(defenderWidget);
+    rewardsButton->setDisabled(true);
+    connect(attackButton, SIGNAL(released()), this, SLOT(attack()));
+    connect(rewardsButton, SIGNAL(released()), this, SLOT(takeReward()));
     setLayout(layout);
 }
 
-void CombatWindow::loadAttacker(Fighter fighter)
+void CombatWindow::loadAttacker(Champion champion)
 {
-    attacker->printFighter(fighter);
+    attacker = champion;
+    attackerWidget->printFighter(attacker);
 }
 
-void CombatWindow::loadDefender(Fighter fighter)
+void CombatWindow::loadDefender(Monster fighter)
 {
-    defender->printFighter(fighter);
+    defender = fighter;
+    defenderWidget->printFighter(defender);
+}
+
+void CombatWindow::refreshFighters()
+{
+    attackerWidget->printFighter(attacker);
+    defenderWidget->printFighter(defender);
+}
+
+void CombatWindow::attack()
+{
+    attacker.fightForOneTurn(defender);
+    refreshFighters();
+    if (attacker.isDead())
+    {
+        //TODO Game Over
+    }
+    if (defender.isDead())
+    {
+        rewardsButton->setDisabled(false);
+    }
+}
+
+void CombatWindow::takeReward()
+{
+    attacker.takeRewards(defender);
+    rewardsButton->setText(QString::number(attacker.getGold()));
+    refreshFighters();
 }

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Champion::Champion(string p_name) : Fighter(p_name, 100, 100)
+Champion::Champion() : Fighter("Geralt", 100, 100)
 {
     this->gold = 25;
     illustrationPath = "image/fighter/champion/geralt.png";
@@ -64,10 +64,8 @@ void Champion::fightAMonster(Monster &target)
     target.printHealth();
     while (this->isAlive() && target.isAlive())
     {
-        this->attack(target);
-        target.attack(*this);
-
-        cout << "#######   ROUND " << roundCount << "  #########" << endl;
+        fightForOneTurn(target);
+        cout << "#######   ROUND " << roundCount << "  ###### ###" << endl;
         this->printHealth();
         target.printHealth();
         roundCount += 1;
@@ -75,6 +73,15 @@ void Champion::fightAMonster(Monster &target)
 
     cout << "######## FIN DU COMBAT ######### \n";
     this->printInfos();
+}
+
+void Champion::fightForOneTurn(Monster &target)
+{
+    if (this->isAlive() && target.isAlive())
+    {
+        this->attack(target);
+        target.attack(*this);
+    }
 }
 
 /**
@@ -116,7 +123,12 @@ void Champion::buyArticle(Article &article)
     }
 }
 
-bool Champion::canAfford(Article &article)
+bool Champion::canAfford(const Article &article) const
 {
     return (gold >= article.getPrice());
+}
+
+int Champion::getGold() const
+{
+    return gold;
 }

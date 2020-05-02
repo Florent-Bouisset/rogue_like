@@ -69,14 +69,14 @@ int main(int argc, char *argv[])
     */
     Monster mob1 = MonsterCreator::FactoryMethod();
     Boss boss1 = BossCreator::FactoryMethod();
-    Champion champ = Champion("Delmak");
+    Champion champ = Champion();
 
     QApplication a(argc, argv);
 
     CombatWindow combat;
 
     combat.setUp();
-    combat.loadDefender(mob1);
+    combat.loadDefender(boss1);
     combat.loadAttacker(champ);
 
     combat.show();

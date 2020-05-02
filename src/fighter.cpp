@@ -131,6 +131,11 @@ bool Fighter::isAlive() const
     return (HP > 0);
 }
 
+bool Fighter::isDead() const
+{
+    return !isAlive();
+}
+
 string Fighter::getName() const
 {
     return name;

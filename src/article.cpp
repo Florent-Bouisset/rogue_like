@@ -38,7 +38,7 @@ Article Article::createArticle()
     return createArticle(randomType);
 }
 
-int Article::getPrice()
+int Article::getPrice() const
 {
     return price;
 }

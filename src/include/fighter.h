@@ -12,9 +12,10 @@ public:
     void changeHP(const int nbHP, const ActionType);
     void changeMaxHP(const int nbMaxHP, const ActionType);
     void changeDamage(const int nbDamage, const ActionType);
-    void attack(Fighter &target);
     bool isAlive() const;
+    bool isDead() const;
     void printHealth() const;
+    void attack(Fighter &target);
 
     //getter
     int getMaxHP() const;
