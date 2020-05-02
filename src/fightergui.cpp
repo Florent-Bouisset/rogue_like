@@ -26,12 +26,30 @@ void FighterGUI::setUp()
     layout->addWidget(damage);
 
     setLayout(layout);
+    layoutSetUp();
+}
+
+void FighterGUI::layoutSetUp()
+{
+    //Alignements
+    illustration->setAlignment(Qt::AlignCenter);
+    name->setAlignment(Qt::AlignCenter);
+    HP->setAlignment(Qt::AlignCenter);
+    damage->setAlignment(Qt::AlignCenter);
+
+    //Font Size
+    QFont font = name->font();
+    font.setPointSize(30);
+    name->setFont(font);
+    HP->setFont(font);
+    damage->setFont(font);
 }
 
 void FighterGUI::printFighter(Fighter fighter)
 {
     name->setText(QString::fromStdString(fighter.getName()));
+
     HP->setText(QString::number(fighter.getHP()) + " / " + QString::number(fighter.getMaxHP()));
     damage->setText(QString::number(fighter.getDamage()));
-    illustration->setPixmap(QPixmap("image/fighter/champion/geralt.png"));
+    illustration->setPixmap(QPixmap(QString::fromStdString(fighter.getIllustrationPath())));
 }

@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     FighterGUI figtherWidget;
-    figtherWidget.printFighter(champ);
+    figtherWidget.printFighter(mob1);
     figtherWidget.show();
     return a.exec();
 }

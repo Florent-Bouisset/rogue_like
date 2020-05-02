@@ -15,7 +15,11 @@ public:
     void printFighter(Fighter fighter);
 
 protected:
+    //Methods
     void setUp();
+    void layoutSetUp();
+
+    //Attributes
     QLabel *HP;
     QLabel *damage;
     QLabel *name;

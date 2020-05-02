@@ -21,12 +21,14 @@ public:
     int getHP() const;
     int getDamage() const;
     std::string getName() const;
+    std::string getIllustrationPath() const;
 
     //setter
     void setName(std::string);
 
 protected:
     std::string name;
+    std::string illustrationPath;
     int MaxHP;
     int HP;
     int damage;
