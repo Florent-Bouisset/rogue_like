@@ -5,22 +5,19 @@
 #include <vector>
 #include "dungeon_room.h"
 
+class Dungeon
+{
+public:
+    Dungeon();
+    void play();
 
-class Dungeon{
-    public:
-        Dungeon();
-        void play();
-
-    private:
-        int chooseNextRoom();
-        void generateNextRooms();
-        int roomAchieved;
-        int nbrOfRoomByLevel;
-        std::vector<std::unique_ptr<DungeonRoom>> roomPossibilites;
-        Champion champion;
-
+private:
+    int chooseNextRoom();
+    void generateNextRooms();
+    int roomAchieved;
+    int nbrOfRoomByLevel;
+    std::vector<std::unique_ptr<DungeonRoom>> roomPossibilites;
+    Champion champion;
 };
-
-
 
 #endif

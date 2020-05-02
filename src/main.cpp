@@ -12,9 +12,9 @@
 
 using namespace std;
 
-int main(){
-    srand(static_cast<unsigned int> (time(nullptr)));
-
+int main()
+{
+    srand(static_cast<unsigned int>(time(nullptr)));
 
     //TEST
     /*
@@ -49,7 +49,7 @@ int main(){
     //myDungeon.play();
 
     Champion champ = Champion("Del");
-    champ.changeHP(50,SOUSTRACT);
+    champ.changeHP(50, SOUSTRACT);
 
     champ.printInfos();
 

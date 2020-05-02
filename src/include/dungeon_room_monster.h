@@ -4,17 +4,16 @@
 #include "dungeon_room.h"
 #include "monster.h"
 
-class DungeonRoomMonster : public DungeonRoom{
-    public:
-        DungeonRoomMonster();
-        std::string roomAbstract();
-        void printRoomDescription();
-        void championInteraction(Champion& champ);
+class DungeonRoomMonster : public DungeonRoom
+{
+public:
+    DungeonRoomMonster();
+    std::string roomAbstract();
+    void printRoomDescription();
+    void championInteraction(Champion &champ);
 
-    private:
-        Monster monster;
+private:
+    Monster monster;
 };
-
-
 
 #endif

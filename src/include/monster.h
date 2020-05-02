@@ -3,23 +3,22 @@
 
 #include "fighter.h"
 
-class Monster : public Fighter{
-    public:
-        Monster();
+class Monster : public Fighter
+{
+public:
+    Monster();
 
-        //GETTERS
-        int getGoldReward() const;
+    //GETTERS
+    int getGoldReward() const;
 
-    private:
-        //METHODS
-        friend class MonsterCreator;
+private:
+    //METHODS
+    friend class MonsterCreator;
 
-
-    protected:
-        //ATTRIBUTES
-        int level;
-        int goldReward;
-
+protected:
+    //ATTRIBUTES
+    int level;
+    int goldReward;
 };
 
 #endif

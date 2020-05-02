@@ -6,18 +6,19 @@
 
 using namespace std;
 
-Article::Article(int p_price, shared_ptr<Item> p_item){
+Article::Article(int p_price, shared_ptr<Item> p_item)
+{
     price = p_price;
     item = p_item;
 }
 
-
-void Article::printArticle(){
+void Article::printArticle()
+{
     cout << "Item: " << item->getName() << " prix : " << price << endl;
 }
 
-
-Article Article::createArticle(ArticleType type){
+Article Article::createArticle(ArticleType type)
+{
     switch (type)
     {
     case ArticleType::RELIC:
@@ -31,15 +32,18 @@ Article Article::createArticle(ArticleType type){
     }
 }
 
-Article Article::createArticle(){
-    ArticleType randomType = static_cast<enum ArticleType> (rand() % ARTICLE_TYPE_MAX_VALUE);
+Article Article::createArticle()
+{
+    ArticleType randomType = static_cast<enum ArticleType>(rand() % ARTICLE_TYPE_MAX_VALUE);
     return createArticle(randomType);
 }
 
-int Article::getPrice(){
+int Article::getPrice()
+{
     return price;
 }
 
-shared_ptr<Item> Article::getItem(){
+shared_ptr<Item> Article::getItem()
+{
     return item;
 }

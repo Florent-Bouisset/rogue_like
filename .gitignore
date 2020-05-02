@@ -3,3 +3,6 @@
 *.d
 *.exe
 *.vscode
+*.csv
+*.txt
+*.md
