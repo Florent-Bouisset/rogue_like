@@ -67,8 +67,13 @@ int main(int argc, char *argv[])
 
     champ.printInfos();
     */
+    Monster mob1 = MonsterCreator::FactoryMethod();
+    Boss boss1 = BossCreator::FactoryMethod();
+    Champion champ = Champion("Delmak");
+
     QApplication a(argc, argv);
-    FighterGUI w;
-    w.show();
+    FighterGUI figtherWidget;
+    figtherWidget.printFighter(champ);
+    figtherWidget.show();
     return a.exec();
 }

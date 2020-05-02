@@ -1,23 +1,15 @@
 #include "include/fightergui.h"
+
 #include <string>
 #include <QString>
 #include <QLayout>
+#include <QPixmap>
 
 using namespace std;
 
 FighterGUI::FighterGUI(QWidget *parent) : QWidget(parent)
 {
     setUp();
-    setName("je usis heureux ça marche!!");
-    setDamage(15);
-    setHP(10, 15);
-
-    QVBoxLayout *layout = new QVBoxLayout();
-    layout->addWidget(name);
-    layout->addWidget(HP);
-    layout->addWidget(damage);
-
-    setLayout(layout);
 }
 
 void FighterGUI::setUp()
@@ -25,19 +17,21 @@ void FighterGUI::setUp()
     name = new QLabel();
     damage = new QLabel();
     HP = new QLabel();
+    illustration = new QLabel();
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(illustration);
+    layout->addWidget(name);
+    layout->addWidget(HP);
+    layout->addWidget(damage);
+
+    setLayout(layout);
 }
 
-void FighterGUI::setName(string p_name)
+void FighterGUI::printFighter(Fighter fighter)
 {
-    name->setText(QString::fromStdString(p_name));
-}
-
-void FighterGUI::setDamage(int p_damage)
-{
-    damage->setText(QString::number(p_damage));
-}
-
-void FighterGUI::setHP(int p_HP, int p_maxHP)
-{
-    HP->setText(QString::number(p_HP) + " / " + QString::number(p_maxHP));
+    name->setText(QString::fromStdString(fighter.getName()));
+    HP->setText(QString::number(fighter.getHP()) + " / " + QString::number(fighter.getMaxHP()));
+    damage->setText(QString::number(fighter.getDamage()));
+    illustration->setPixmap(QPixmap("image/fighter/champion/geralt.png"));
 }

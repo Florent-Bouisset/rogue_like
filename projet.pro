@@ -17,10 +17,32 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/fightergui.cpp \
-    src/main.cpp
+    src/main.cpp \
+    src/fighter.cpp \
+    src/monster.cpp \
+    src/champion.cpp \
+    src/monster_creator.cpp \
+    src/boss.cpp \
+    src/boss_creator.cpp \
+    src/item.cpp \
+    src/potion.cpp \
+    src/relic.cpp \
+    src/article.cpp \
+    src/marchand.cpp
 
 HEADERS += \
-    src/include/fightergui.h
+    src/include/fightergui.h \
+    src/include/fighter.h \
+    src/include/monster.h \
+    src/include/champion.h \
+    src/include/monster_creator.h \
+    src/include/boss.h \
+    src/include/boss_creator.h \
+    src/include/item.h \
+    src/include/potion.h \
+    src/include/relic.h \
+    src/include/article.h \
+    src/include/marchand.h
 
 FORMS +=
 

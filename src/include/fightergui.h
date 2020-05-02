@@ -3,7 +3,8 @@
 
 #include <QWidget>
 #include <QLabel>
-#include <string>
+#include "fighter.h"
+#include <QPixmap>
 
 class FighterGUI : public QWidget
 {
@@ -11,15 +12,14 @@ class FighterGUI : public QWidget
 public:
     explicit FighterGUI(QWidget *parent = nullptr);
 
+    void printFighter(Fighter fighter);
+
 protected:
     void setUp();
     QLabel *HP;
     QLabel *damage;
     QLabel *name;
-
-    void setHP(int HP, int maxHP);
-    void setDamage(int dmg);
-    void setName(std::string p_name);
+    QLabel *illustration;
 
 signals:
 };
