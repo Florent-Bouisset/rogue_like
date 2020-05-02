@@ -48,7 +48,6 @@ void FighterGUI::layoutSetUp()
 void FighterGUI::printFighter(Fighter fighter)
 {
     name->setText(QString::fromStdString(fighter.getName()));
-
     HP->setText(QString::number(fighter.getHP()) + " / " + QString::number(fighter.getMaxHP()));
     damage->setText(QString::number(fighter.getDamage()));
     illustration->setPixmap(QPixmap(QString::fromStdString(fighter.getIllustrationPath())));

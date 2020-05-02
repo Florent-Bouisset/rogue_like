@@ -28,7 +28,9 @@ SOURCES += \
     src/potion.cpp \
     src/relic.cpp \
     src/article.cpp \
-    src/marchand.cpp
+    src/marchand.cpp \
+    src/combat_window.cpp
+
 
 HEADERS += \
     src/include/fightergui.h \
@@ -42,7 +44,8 @@ HEADERS += \
     src/include/potion.h \
     src/include/relic.h \
     src/include/article.h \
-    src/include/marchand.h
+    src/include/marchand.h \
+    src/include/combat_window.h
 
 FORMS +=
 

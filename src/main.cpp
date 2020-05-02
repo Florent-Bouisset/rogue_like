@@ -9,7 +9,7 @@
 #include "include/boss_creator.h"
 #include "include/dungeon.h"
 #include "include/marchand.h"
-
+#include "include/combat_window.h"
 #include "include/fightergui.h"
 #include <QApplication>
 
@@ -72,8 +72,18 @@ int main(int argc, char *argv[])
     Champion champ = Champion("Delmak");
 
     QApplication a(argc, argv);
-    FighterGUI figtherWidget;
-    figtherWidget.printFighter(mob1);
-    figtherWidget.show();
+
+    CombatWindow combat;
+
+    combat.setUp();
+    combat.loadDefender(mob1);
+    combat.loadAttacker(champ);
+
+    combat.show();
+
+    //FighterGUI figtherWidget;
+    //figtherWidget.printFighter(champ);
+
+    //figtherWidget.show();
     return a.exec();
 }
