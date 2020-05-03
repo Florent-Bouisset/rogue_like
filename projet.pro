@@ -47,6 +47,8 @@ HEADERS += \
     src/include/marchand.h \
     src/include/combat_window.h
 
+OBJECTS_DIR += obj/
+
 FORMS +=
 
 # Default rules for deployment.
