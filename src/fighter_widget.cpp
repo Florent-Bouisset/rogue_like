@@ -7,12 +7,12 @@
 
 using namespace std;
 
-FighterGUI::FighterGUI(QWidget *parent) : QWidget(parent)
+FighterWidget::FighterWidget(QWidget *parent) : QWidget(parent)
 {
     setUp();
 }
 
-void FighterGUI::setUp()
+void FighterWidget::setUp()
 {
     name = new QLabel();
     damage = new QLabel();
@@ -29,7 +29,7 @@ void FighterGUI::setUp()
     layoutSetUp();
 }
 
-void FighterGUI::layoutSetUp()
+void FighterWidget::layoutSetUp()
 {
     //Alignements
     illustration->setAlignment(Qt::AlignCenter);
@@ -45,7 +45,7 @@ void FighterGUI::layoutSetUp()
     damage->setFont(font);
 }
 
-void FighterGUI::printFighter(Fighter fighter)
+void FighterWidget::printFighter(Fighter fighter)
 {
     name->setText(QString::fromStdString(fighter.getName()));
     HP->setText(QString::number(fighter.getHP()) + " / " + QString::number(fighter.getMaxHP()));

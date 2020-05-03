@@ -1,16 +1,16 @@
-#ifndef FIGHTERGUI_H
-#define FIGHTERGUI_H
+#ifndef FIGHTER_WIDGET_H
+#define FIGHTER_WIDGET_H
 
 #include <QWidget>
 #include <QLabel>
 #include "fighter.h"
 #include <QPixmap>
 
-class FighterGUI : public QWidget
+class FighterWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit FighterGUI(QWidget *parent = nullptr);
+    explicit FighterWidget(QWidget *parent = nullptr);
 
     void printFighter(Fighter fighter);
 
@@ -28,4 +28,4 @@ protected:
 signals:
 };
 
-#endif // FIGHTERGUI_H
+#endif

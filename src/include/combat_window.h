@@ -27,8 +27,8 @@ public slots:
 protected:
     std::shared_ptr<Champion> attacker;
     std::shared_ptr<Monster> defender;
-    FighterGUI *attackerWidget;
-    FighterGUI *defenderWidget;
+    FighterWidget *attackerWidget;
+    FighterWidget *defenderWidget;
 
     QPushButton *attackButton;
     QPushButton *rewardsButton;

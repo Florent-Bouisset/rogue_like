@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 
     combat.show();
 
-    //FighterGUI figtherWidget;
+    //FighterWidget figtherWidget;
     //figtherWidget.printFighter(champ);
 
     //figtherWidget.show();

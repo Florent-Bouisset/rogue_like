@@ -10,8 +10,8 @@ CombatWindow::CombatWindow()
 
 void CombatWindow::setUp()
 {
-    attackerWidget = new FighterGUI();
-    defenderWidget = new FighterGUI();
+    attackerWidget = new FighterWidget();
+    defenderWidget = new FighterWidget();
 
     attackButton = new QPushButton("Attaquer");
     rewardsButton = new QPushButton("Réclamer sa prime");
