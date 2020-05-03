@@ -18,8 +18,7 @@ public:
     void printInfos() const;
     void fightAMonster(Monster &target);
     void fightForOneTurn(Monster &target);
-    void takeRewards(Monster &target);
-    void takeRewards(Boss &target);
+    void takeRewards(Monster *target);
     void buyArticle(Article &article);
     bool canAfford(const Article &article) const;
     void changeGold(const int goldAmount, const ActionType action);

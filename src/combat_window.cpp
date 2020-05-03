@@ -33,27 +33,27 @@ void CombatWindow::loadAttacker(Champion champion)
     attackerWidget->printFighter(attacker);
 }
 
-void CombatWindow::loadDefender(Monster fighter)
+void CombatWindow::loadDefender(Monster *monster)
 {
-    defender = fighter;
-    defenderWidget->printFighter(defender);
+    defender = monster;
+    defenderWidget->printFighter(*defender);
 }
 
 void CombatWindow::refreshFighters()
 {
     attackerWidget->printFighter(attacker);
-    defenderWidget->printFighter(defender);
+    defenderWidget->printFighter(*defender);
 }
 
 void CombatWindow::attack()
 {
-    attacker.fightForOneTurn(defender);
+    attacker.fightForOneTurn(*defender);
     refreshFighters();
     if (attacker.isDead())
     {
         //TODO Game Over
     }
-    if (defender.isDead())
+    if (defender->isDead())
     {
         rewardsButton->setDisabled(false);
     }
@@ -62,6 +62,5 @@ void CombatWindow::attack()
 void CombatWindow::takeReward()
 {
     attacker.takeRewards(defender);
-    rewardsButton->setText(QString::number(attacker.getGold()));
     refreshFighters();
 }

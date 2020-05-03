@@ -87,27 +87,15 @@ void Champion::fightForOneTurn(Monster &target)
 /**
  * Prend les recompenses d'un monstre
  * donc augmente l'or du champion
- *
- * */
 
-void Champion::takeRewards(Monster &target)
-{
-    this->changeGold(target.getGoldReward(), ADDITION);
-    cout << "Ce combat vous donne " << target.getGoldReward()
-         << " pieces d'or ! " << endl;
-}
-
-/**
  * Prends les recompenses d'un boss
  * cad les recompenses classique d'un combat normal
  * + une relic special
  * */
 
-void Champion::takeRewards(Boss &target)
+void Champion::takeRewards(Monster *target)
 {
-    takeRewards(static_cast<Monster &>(target));
-    target.getRelicReward().giveABoost(*this);
-    cout << "Ce combat vous donne la relique " << target.getRelicReward().getName() << " ! " << endl;
+    target->giveRewards(*this);
 }
 
 void Champion::buyArticle(Article &article)

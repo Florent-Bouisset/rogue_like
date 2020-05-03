@@ -18,16 +18,16 @@ public:
     CombatWindow();
     void setUp();
     void loadAttacker(Champion);
-    void loadDefender(Monster);
+    void loadDefender(Monster *);
     void refreshFighters();
 
 public slots:
     void attack();
-    void takeReward();
+    virtual void takeReward();
 
 protected:
     Champion attacker;
-    Monster defender;
+    Monster *defender;
     FighterGUI *attackerWidget;
     FighterGUI *defenderWidget;
 
