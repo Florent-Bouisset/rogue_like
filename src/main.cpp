@@ -10,7 +10,7 @@
 #include "include/dungeon.h"
 #include "include/marchand.h"
 #include "include/combat_window.h"
-#include "include/fightergui.h"
+#include "include/fighter_widget.h"
 #include <QApplication>
 
 using namespace std;
@@ -70,7 +70,10 @@ int main(int argc, char *argv[])
     Monster mob1 = MonsterCreator::FactoryMethod();
     Boss boss1 = BossCreator::FactoryMethod();
     Champion champ = Champion();
-    Monster *b1 = &boss1;
+
+    //Smart pointers
+    shared_ptr<Monster> b1 = make_shared<Boss>(boss1);
+    shared_ptr<Champion> ch1 = make_shared<Champion>(champ);
 
     QApplication a(argc, argv);
 
@@ -78,7 +81,7 @@ int main(int argc, char *argv[])
 
     combat.setUp();
     combat.loadDefender(b1);
-    combat.loadAttacker(champ);
+    combat.loadAttacker(ch1);
 
     combat.show();
 

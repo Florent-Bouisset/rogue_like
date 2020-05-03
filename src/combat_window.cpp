@@ -27,13 +27,13 @@ void CombatWindow::setUp()
     setLayout(layout);
 }
 
-void CombatWindow::loadAttacker(Champion champion)
+void CombatWindow::loadAttacker(shared_ptr<Champion> champion)
 {
     attacker = champion;
-    attackerWidget->printFighter(attacker);
+    attackerWidget->printFighter(*attacker);
 }
 
-void CombatWindow::loadDefender(Monster *monster)
+void CombatWindow::loadDefender(shared_ptr<Monster> monster)
 {
     defender = monster;
     defenderWidget->printFighter(*defender);
@@ -41,26 +41,27 @@ void CombatWindow::loadDefender(Monster *monster)
 
 void CombatWindow::refreshFighters()
 {
-    attackerWidget->printFighter(attacker);
+    attackerWidget->printFighter(*attacker);
     defenderWidget->printFighter(*defender);
 }
 
 void CombatWindow::attack()
 {
-    attacker.fightForOneTurn(*defender);
+    attacker->fightForOneTurn(*defender);
     refreshFighters();
-    if (attacker.isDead())
+    if (attacker->isDead())
     {
         //TODO Game Over
     }
     if (defender->isDead())
     {
+        //TODO Go to rewards
         rewardsButton->setDisabled(false);
     }
 }
 
 void CombatWindow::takeReward()
 {
-    attacker.takeRewards(defender);
+    attacker->takeRewards(defender);
     refreshFighters();
 }

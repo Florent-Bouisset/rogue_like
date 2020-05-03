@@ -16,7 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    src/fightergui.cpp \
+    src/fighter_widget.cpp \
     src/main.cpp \
     src/fighter.cpp \
     src/monster.cpp \
@@ -33,7 +33,7 @@ SOURCES += \
 
 
 HEADERS += \
-    src/include/fightergui.h \
+    src/include/fighter_widget.h \
     src/include/fighter.h \
     src/include/monster.h \
     src/include/champion.h \

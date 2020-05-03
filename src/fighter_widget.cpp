@@ -1,4 +1,4 @@
-#include "include/fightergui.h"
+#include "include/fighter_widget.h"
 
 #include <string>
 #include <QString>

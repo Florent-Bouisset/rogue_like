@@ -93,7 +93,7 @@ void Champion::fightForOneTurn(Monster &target)
  * + une relic special
  * */
 
-void Champion::takeRewards(Monster *target)
+void Champion::takeRewards(shared_ptr<Monster> target)
 {
     target->giveRewards(*this);
 }

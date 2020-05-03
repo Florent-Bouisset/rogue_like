@@ -3,12 +3,11 @@
 
 #include <QWidget>
 #include <QPushButton>
-
-#include "fightergui.h"
+#include <memory>
+#include "fighter_widget.h"
 #include "fighter.h"
 #include "champion.h"
 #include "monster.h"
-#include "boss.h"
 
 class CombatWindow : public QWidget
 {
@@ -17,8 +16,8 @@ class CombatWindow : public QWidget
 public:
     CombatWindow();
     void setUp();
-    void loadAttacker(Champion);
-    void loadDefender(Monster *);
+    void loadAttacker(std::shared_ptr<Champion>);
+    void loadDefender(std::shared_ptr<Monster>);
     void refreshFighters();
 
 public slots:
@@ -26,8 +25,8 @@ public slots:
     virtual void takeReward();
 
 protected:
-    Champion attacker;
-    Monster *defender;
+    std::shared_ptr<Champion> attacker;
+    std::shared_ptr<Monster> defender;
     FighterGUI *attackerWidget;
     FighterGUI *defenderWidget;
 
