@@ -19,6 +19,7 @@ public:
     void loadAttacker(std::shared_ptr<Champion>);
     void loadDefender(std::shared_ptr<Monster>);
     void refreshFighters();
+    QPushButton *rewardsButton;
 
 public slots:
     void attack();
@@ -31,7 +32,6 @@ protected:
     FighterWidget *defenderWidget;
 
     QPushButton *attackButton;
-    QPushButton *rewardsButton;
 };
 
 #endif

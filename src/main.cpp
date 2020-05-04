@@ -11,6 +11,8 @@
 #include "include/marchand.h"
 #include "include/combat_window.h"
 #include "include/fighter_widget.h"
+#include "include/reward_window.h"
+#include "include/main_window.h"
 #include <QApplication>
 
 using namespace std;
@@ -18,35 +20,6 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     srand(static_cast<unsigned int>(time(nullptr)));
-
-    //TEST
-    /*
-    Champion guerrier = Champion("Delmak");
-    Monster mob1 = Monster();
-    Boss boss1 = Boss();
-
-    cout << mob1.getName() <<endl;
-    cout << boss1.getName() <<endl;
-    //guerrier.fightAMonster(mob1);
-    guerrier.fightAMonster(boss1);
-    guerrier.takeRewards(boss1);
-    guerrier.printInfos();
-    */
-    /*
-
-    //TEST 2
-    Monster mob2 = MonsterCreator::FactoryMethod(NEKKER);
-    Monster mob3 = MonsterCreator::FactoryMethod(ARAKAS);
-    mob2.printHealth();
-    mob3.printHealth();
-
-    Boss boss2 = BossCreator::FactoryMethod(COCATRIX);
-    Boss boss3 = BossCreator::FactoryMethod(); // Random factory
-
-    boss2.printHealth();
-    boss3.printHealth();
-    */
-    //FIN TEST
 
     //Dungeon myDungeon = Dungeon();
     //myDungeon.play();
@@ -67,6 +40,8 @@ int main(int argc, char *argv[])
 
     champ.printInfos();
     */
+
+    /* TEST 5
     Monster mob1 = MonsterCreator::FactoryMethod();
     Boss boss1 = BossCreator::FactoryMethod();
     Champion champ = Champion();
@@ -85,9 +60,42 @@ int main(int argc, char *argv[])
 
     combat.show();
 
-    //FighterWidget figtherWidget;
-    //figtherWidget.printFighter(champ);
+    */
+    /* TEST 6
+    Boss b = BossCreator::FactoryMethod();
+    shared_ptr<Monster> b1 = make_shared<Boss>(b);
 
-    //figtherWidget.show();
+    Monster m = MonsterCreator::FactoryMethod();
+    shared_ptr<Monster> m1 = make_shared<Monster>(m);
+
+    QApplication a(argc, argv);
+    RewardWindow reward;
+    reward.printRewards(b1);
+    reward.show();
+    */
+    /* TEST 7
+    QApplication a(argc, argv);
+    Monster mob1 = MonsterCreator::FactoryMethod();
+    Boss boss1 = BossCreator::FactoryMethod();
+    Champion champ = Champion();
+
+    shared_ptr<Monster> b1 = make_shared<Boss>(boss1);
+    shared_ptr<Champion> ch1 = make_shared<Champion>(champ);
+    CombatWindow combat;
+
+    combat.setUp();
+    combat.loadDefender(b1);
+    combat.loadAttacker(ch1);
+
+    combat.show();
+
+    */
+
+    //TEST 8
+    QApplication a(argc, argv);
+    MainWindow mainwindow;
+    mainwindow.show();
+    mainwindow.play();
+
     return a.exec();
 }

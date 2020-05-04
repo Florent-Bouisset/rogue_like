@@ -1,6 +1,7 @@
 #include "include/combat_window.h"
 
 #include <QBoxLayout>
+#include "include/reward_window.h"
 
 using namespace std;
 
@@ -22,8 +23,8 @@ void CombatWindow::setUp()
     layout->addWidget(rewardsButton);
     layout->addWidget(defenderWidget);
     rewardsButton->setDisabled(true);
-    connect(attackButton, SIGNAL(released()), this, SLOT(attack()));
-    connect(rewardsButton, SIGNAL(released()), this, SLOT(takeReward()));
+    connect(attackButton, SIGNAL(clicked()), this, SLOT(attack()));
+    connect(rewardsButton, SIGNAL(clicked()), this, SLOT(takeReward()));
     setLayout(layout);
 }
 
@@ -63,5 +64,8 @@ void CombatWindow::attack()
 void CombatWindow::takeReward()
 {
     attacker->takeRewards(defender);
-    refreshFighters();
+    rewardsButton->setDisabled(true);
+    RewardWindow *reward = new RewardWindow();
+    reward->printRewards(defender);
+    reward->show();
 }

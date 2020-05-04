@@ -29,7 +29,9 @@ SOURCES += \
     src/relic.cpp \
     src/article.cpp \
     src/marchand.cpp \
-    src/combat_window.cpp
+    src/combat_window.cpp \
+    src/reward_window.cpp \
+    src/main_window.cpp
 
 
 HEADERS += \
@@ -45,7 +47,9 @@ HEADERS += \
     src/include/relic.h \
     src/include/article.h \
     src/include/marchand.h \
-    src/include/combat_window.h
+    src/include/combat_window.h \
+    src/include/reward_window.h \
+    src/include/main_window.h
 
 OBJECTS_DIR += obj/
 

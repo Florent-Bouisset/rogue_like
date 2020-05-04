@@ -43,6 +43,8 @@ void FighterWidget::layoutSetUp()
     name->setFont(font);
     HP->setFont(font);
     damage->setFont(font);
+
+    this->setFixedSize(350, 600);
 }
 
 void FighterWidget::printFighter(Fighter fighter)
