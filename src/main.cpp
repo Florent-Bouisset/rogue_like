@@ -9,8 +9,6 @@
 #include "include/boss_creator.h"
 #include "include/dungeon.h"
 #include "include/dungeon_room.h"
-#include "include/dungeon_room_monster.h"
-#include "include/dungeon_room_boss.h"
 #include "include/marchand.h"
 #include "include/combat_window.h"
 #include "include/fighter_widget.h"

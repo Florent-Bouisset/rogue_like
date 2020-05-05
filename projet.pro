@@ -34,8 +34,6 @@ SOURCES += \
     src/main_window.cpp \
     src/level_selection_window.cpp \
     src/dungeon_room.cpp \
-    src/dungeon_room_monster.cpp \
-    src/dungeon_room_boss.cpp \
 
 
 HEADERS += \
@@ -56,8 +54,6 @@ HEADERS += \
     src/include/main_window.h \
     src/include/level_selection_window.h \
     src/include/dungeon_room.h \
-    src/include/dungeon_room_monster.h \
-    src/include/dungeon_room_boss.h
 
 OBJECTS_DIR += obj/
 

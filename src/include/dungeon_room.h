@@ -18,13 +18,16 @@ class DungeonRoom : public QWidget
 {
 public:
     DungeonRoom();
+    DungeonRoom(RoomType type, std::string title, std::string abstract);
+
     //Methods
-    void setUp();
-    virtual void championInteraction(Champion &champ) = 0;
+    void layoutSetUp();
+
     static DungeonRoom *createRoom(RoomType type);
     static DungeonRoom *createRoom();
 
     //Attributes
+    RoomType roomType;
     QLabel *roomTitle;
     QLabel *roomAbstract;
     QPushButton *chooseRoom;
