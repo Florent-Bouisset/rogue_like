@@ -8,12 +8,16 @@
 #include "include/monster_creator.h"
 #include "include/boss_creator.h"
 #include "include/dungeon.h"
+#include "include/dungeon_room.h"
+#include "include/dungeon_room_monster.h"
+#include "include/dungeon_room_boss.h"
 #include "include/marchand.h"
 #include "include/combat_window.h"
 #include "include/fighter_widget.h"
 #include "include/reward_window.h"
 #include "include/main_window.h"
 #include <QApplication>
+#include "include/level_selection_window.h"
 
 using namespace std;
 
@@ -93,9 +97,13 @@ int main(int argc, char *argv[])
 
     //TEST 8
     QApplication a(argc, argv);
-    MainWindow mainwindow;
-    mainwindow.launchGame();
-    mainwindow.show();
+    //MainWindow mainwindow;
+    //mainwindow.launchGame();
+    //mainwindow.show();
+    //DungeonRoom *testWidget = DungeonRoom::createRoom();
+    //testWidget->show();
 
+    LevelSelectionWindow *selection = new LevelSelectionWindow();
+    selection->show();
     return a.exec();
 }

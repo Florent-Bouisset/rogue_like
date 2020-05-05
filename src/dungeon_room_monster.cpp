@@ -5,23 +5,17 @@
 
 using namespace std;
 
-
-DungeonRoomMonster::DungeonRoomMonster(){
+DungeonRoomMonster::DungeonRoomMonster()
+{
     monster = MonsterCreator::FactoryMethod();
+
+    string roomTitleString = "Monstre commun";
+    string roomAbstractString = "Une salle de monstre avec des petites recompenses";
+
+    roomTitle->setText(QString::fromStdString(roomTitleString));
+    roomAbstract->setText(QString::fromStdString(roomAbstractString));
 }
 
-string DungeonRoomMonster::roomAbstract(){
-    return "Une salle de monstre avec des petites recompenses";
-}
-
-void DungeonRoomMonster::printRoomDescription(){
-    cout << "Vous entrez dans une salle banale .. un "<< monster.getName() << " apparait !" << endl;
-}
-
-void DungeonRoomMonster::championInteraction(Champion& champ){
-    printRoomDescription();
-    champ.fightAMonster(monster);
-    if(!monster.isAlive()){
-        champ.takeRewards(monster);
-    }
+void DungeonRoomMonster::championInteraction(Champion &champ)
+{
 }

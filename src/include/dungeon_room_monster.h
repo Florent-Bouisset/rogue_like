@@ -8,8 +8,7 @@ class DungeonRoomMonster : public DungeonRoom
 {
 public:
     DungeonRoomMonster();
-    std::string roomAbstract();
-    void printRoomDescription();
+
     void championInteraction(Champion &champ);
 
 private:
