@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     RewardWindow reward;
-    reward.printRewards(b1);
+    reward.loadMonsterRewards(b1);
     reward.show();
     */
     /* TEST 7
@@ -94,8 +94,8 @@ int main(int argc, char *argv[])
     //TEST 8
     QApplication a(argc, argv);
     MainWindow mainwindow;
+    mainwindow.launchGame();
     mainwindow.show();
-    mainwindow.play();
 
     return a.exec();
 }

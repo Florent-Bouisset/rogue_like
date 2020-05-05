@@ -11,12 +11,14 @@ class MainWindow : public QStackedWidget
 public:
     MainWindow();
     void setUp();
-    void play();
-    void toCombatWindow();
-    void toRewardWindow();
+    void launchGame();
+    void loadPlayerProfile();
+
     CombatWindow *combatWindow;
     RewardWindow *rewardWindow;
 public slots:
+    void toCombatWindow();
+    void toRewardWindow();
     void newCombat();
 };
 

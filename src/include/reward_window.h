@@ -16,12 +16,13 @@ public:
     RewardWindow();
     ~RewardWindow();
     void setUp();
-    void printRewards(std::shared_ptr<Monster> monster);
+    void loadMonsterRewards(std::shared_ptr<Monster> monster);
 
 protected:
     QLabel *title;
     QLabel *goldReward;
     QLabel *relicReward;
+    QPushButton *nextLevel;
 };
 
 #endif

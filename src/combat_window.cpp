@@ -65,7 +65,4 @@ void CombatWindow::takeReward()
 {
     attacker->takeRewards(defender);
     rewardsButton->setDisabled(true);
-    RewardWindow *reward = new RewardWindow();
-    reward->printRewards(defender);
-    reward->show();
 }

@@ -17,39 +17,47 @@ void MainWindow::setUp()
     rewardWindow = new RewardWindow();
     combatWindow->setUp();
     rewardWindow->setUp();
-    this->addWidget(combatWindow);
-    this->addWidget(rewardWindow);
+    addWidget(combatWindow);
+    addWidget(rewardWindow);
 
-    connect(combatWindow->rewardsButton, SIGNAL(clicked()), this, SLOT(newCombat()));
+    connect(combatWindow->rewardsButton, SIGNAL(clicked()), this, SLOT(toRewardWindow()));
+
+    //connect(combatWindow->rewardsButton, SIGNAL(clicked()), this, SLOT(newCombat()));
 }
 
-void MainWindow::play()
+void MainWindow::loadPlayerProfile()
 {
-
-    Monster mob1 = MonsterCreator::FactoryMethod();
-    Boss boss1 = BossCreator::FactoryMethod();
-    Champion champ = Champion();
-
-    shared_ptr<Monster> b1 = make_shared<Monster>(mob1);
-    shared_ptr<Champion> ch1 = make_shared<Champion>(champ);
-    connect(combatWindow->rewardsButton, SIGNAL(clicked()), this, SLOT(newCombat()));
-
-    combatWindow->loadDefender(b1);
+    shared_ptr<Champion> ch1 = make_shared<Champion>();
     combatWindow->loadAttacker(ch1);
+}
+
+void MainWindow::launchGame()
+{
+    loadPlayerProfile();
+    newCombat();
+    toCombatWindow();
 }
 
 void MainWindow::toRewardWindow()
 {
+    setCurrentWidget(rewardWindow);
 }
 
 void MainWindow::toCombatWindow()
 {
+    setCurrentWidget(combatWindow);
 }
 
 void MainWindow::newCombat()
 {
+    /*
     Monster mob1 = MonsterCreator::FactoryMethod();
     shared_ptr<Monster> m1 = make_shared<Monster>(mob1);
+    */
+    Boss bos1 = BossCreator::FactoryMethod();
+    shared_ptr<Monster> m1 = make_shared<Boss>(bos1);
+
     combatWindow->loadDefender(m1);
+    rewardWindow->loadMonsterRewards(m1);
     combatWindow->refreshFighters();
 }
