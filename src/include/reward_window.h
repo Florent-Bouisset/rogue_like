@@ -15,6 +15,8 @@ class RewardWindow : public QWidget
 public:
     RewardWindow();
     ~RewardWindow();
+    QPushButton *nextLevel;
+
     void setUp();
     void loadMonsterRewards(std::shared_ptr<Monster> monster);
 
@@ -22,7 +24,6 @@ protected:
     QLabel *title;
     QLabel *goldReward;
     QLabel *relicReward;
-    QPushButton *nextLevel;
 };
 
 #endif

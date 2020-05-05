@@ -23,29 +23,46 @@ LevelSelectionWindow::LevelSelectionWindow()
     centralWidget->setFrameStyle(QFrame::Box | QFrame::Raised);
     centralWidget->setLineWidth(2);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout();
-    QHBoxLayout *secondLayout = new QHBoxLayout();
+    //TEST
+    testButton = new QPushButton("Generer nouveaux");
+    QObject::connect(testButton, SIGNAL(clicked()), this, SLOT(generateLevelPropositions()));
+
+    mainLayout = new QVBoxLayout();
     generateLevelPropositions();
 
-    foreach (DungeonRoom *room, levelPropositions)
-    {
-        secondLayout->addWidget(room);
-    }
-    centralWidget->setLayout(secondLayout);
     mainLayout->addWidget(title);
     mainLayout->addWidget(centralWidget);
+    mainLayout->addWidget(testButton);
     setLayout(mainLayout);
 }
 
 void LevelSelectionWindow::generateLevelPropositions()
 {
+    //Delete olds widgets
+
     while (levelPropositions.size() != 0)
     {
         levelPropositions.pop_back();
     }
 
+    //Create new widgets and new widgets to the layout
+    delete (secondLayout);
+    secondLayout = new QHBoxLayout();
+
     for (int i = 0; i < numberOfProposition; i++)
     {
         levelPropositions.push_back(DungeonRoom::createRoom());
+        secondLayout->addWidget(levelPropositions.at(i));
+        connect(levelPropositions.at(i), SIGNAL(roomSelected(RoomType)), this, SLOT(sendLevelSelection(RoomType)));
     }
+
+    //Delete layout and child widget before setting the new layout
+    delete (centralWidget->layout());
+    qDeleteAll(centralWidget->children());
+    centralWidget->setLayout(secondLayout);
+}
+
+void LevelSelectionWindow::sendLevelSelection(RoomType type)
+{
+    emit levelSelected(type);
 }

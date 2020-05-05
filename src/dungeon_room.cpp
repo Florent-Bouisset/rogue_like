@@ -19,6 +19,8 @@ DungeonRoom::DungeonRoom()
 
     chooseRoom = new QPushButton();
     chooseRoom->setText("Choisir cette salle");
+    layoutSetUp();
+    connect(chooseRoom, SIGNAL(clicked()), this, SLOT(emitSignal()));
 }
 
 DungeonRoom::DungeonRoom(RoomType type, std::string title, std::string abstract)
@@ -35,6 +37,7 @@ DungeonRoom::DungeonRoom(RoomType type, std::string title, std::string abstract)
     chooseRoom->setText("Choisir cette salle");
 
     layoutSetUp();
+    connect(chooseRoom, SIGNAL(clicked()), this, SLOT(emitSignal()));
 }
 
 void DungeonRoom::layoutSetUp()
@@ -79,4 +82,10 @@ DungeonRoom *DungeonRoom::createRoom()
 {
     RoomType randomType = static_cast<enum RoomType>(rand() % ROOM_MAX_VALUE);
     return createRoom(randomType);
+}
+
+void DungeonRoom::emitSignal()
+{
+
+    emit roomSelected(roomType);
 }

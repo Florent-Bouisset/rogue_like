@@ -95,13 +95,9 @@ int main(int argc, char *argv[])
 
     //TEST 8
     QApplication a(argc, argv);
-    //MainWindow mainwindow;
-    //mainwindow.launchGame();
-    //mainwindow.show();
-    //DungeonRoom *testWidget = DungeonRoom::createRoom();
-    //testWidget->show();
+    MainWindow mainwindow;
+    mainwindow.launchGame();
+    mainwindow.show();
 
-    LevelSelectionWindow *selection = new LevelSelectionWindow();
-    selection->show();
     return a.exec();
 }

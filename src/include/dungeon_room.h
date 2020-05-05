@@ -16,6 +16,7 @@ enum RoomType
 
 class DungeonRoom : public QWidget
 {
+    Q_OBJECT
 public:
     DungeonRoom();
     DungeonRoom(RoomType type, std::string title, std::string abstract);
@@ -26,6 +27,13 @@ public:
     static DungeonRoom *createRoom(RoomType type);
     static DungeonRoom *createRoom();
 
+public slots:
+    void emitSignal();
+
+signals:
+    void roomSelected(RoomType selected);
+
+private:
     //Attributes
     RoomType roomType;
     QLabel *roomTitle;
