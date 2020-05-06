@@ -21,6 +21,9 @@ public:
     void refreshFighters();
     QPushButton *rewardsButton;
 
+signals:
+    void championIsDead();
+
 public slots:
     void attack();
     virtual void takeReward();

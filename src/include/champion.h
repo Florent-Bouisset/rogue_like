@@ -17,7 +17,6 @@ class Champion : public Fighter
 public:
     Champion();
     void printInfos() const;
-    void fightAMonster(Monster &target);
     void fightForOneTurn(Monster &target);
     void takeRewards(std::shared_ptr<Monster> target);
     void buyArticle(Article &article);

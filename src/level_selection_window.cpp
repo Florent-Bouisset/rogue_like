@@ -23,16 +23,11 @@ LevelSelectionWindow::LevelSelectionWindow()
     centralWidget->setFrameStyle(QFrame::Box | QFrame::Raised);
     centralWidget->setLineWidth(2);
 
-    //TEST
-    testButton = new QPushButton("Generer nouveaux");
-    QObject::connect(testButton, SIGNAL(clicked()), this, SLOT(generateLevelPropositions()));
-
     mainLayout = new QVBoxLayout();
     generateLevelPropositions();
 
     mainLayout->addWidget(title);
     mainLayout->addWidget(centralWidget);
-    mainLayout->addWidget(testButton);
     setLayout(mainLayout);
 }
 
@@ -64,5 +59,6 @@ void LevelSelectionWindow::generateLevelPropositions()
 
 void LevelSelectionWindow::sendLevelSelection(RoomType type)
 {
+    generateLevelPropositions();
     emit levelSelected(type);
 }

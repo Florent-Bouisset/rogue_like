@@ -52,11 +52,10 @@ void CombatWindow::attack()
     refreshFighters();
     if (attacker->isDead())
     {
-        //TODO Game Over
+        emit championIsDead();
     }
     if (defender->isDead())
     {
-        //TODO Go to rewards
         rewardsButton->setDisabled(false);
     }
 }

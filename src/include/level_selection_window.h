@@ -17,7 +17,6 @@ public:
     int numberOfProposition;
     QLabel *title;
     QFrame *centralWidget;
-    QPushButton *testButton;
     QVBoxLayout *mainLayout;
     QHBoxLayout *secondLayout;
 

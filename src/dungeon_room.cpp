@@ -86,6 +86,5 @@ DungeonRoom *DungeonRoom::createRoom()
 
 void DungeonRoom::emitSignal()
 {
-
     emit roomSelected(roomType);
 }

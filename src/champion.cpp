@@ -7,9 +7,10 @@
 
 using namespace std;
 
-Champion::Champion() : Fighter("Geralt", 100, 100)
+Champion::Champion() : Fighter("Geralt", 150, 150)
 {
-    this->gold = 25;
+    damage = 20;
+    gold = 25;
     illustrationPath = "image/fighter/champion/geralt.png";
 }
 
@@ -55,25 +56,6 @@ void Champion::changeGold(const int goldAmount, const ActionType action)
  * deux combattant est mort
  *
  */
-
-void Champion::fightAMonster(Monster &target)
-{
-    int roundCount = 1;
-    cout << "######### AVANT COMBAT ########" << endl;
-    this->printHealth();
-    target.printHealth();
-    while (this->isAlive() && target.isAlive())
-    {
-        fightForOneTurn(target);
-        cout << "#######   ROUND " << roundCount << "  ###### ###" << endl;
-        this->printHealth();
-        target.printHealth();
-        roundCount += 1;
-    }
-
-    cout << "######## FIN DU COMBAT ######### \n";
-    this->printInfos();
-}
 
 void Champion::fightForOneTurn(Monster &target)
 {

@@ -3,6 +3,7 @@
 #include "include/monster_creator.h"
 #include "include/boss_creator.h"
 #include "include/champion.h"
+#include "include/defeat_window.h"
 
 using namespace std;
 
@@ -16,13 +17,16 @@ void MainWindow::setUp()
     combatWindow = new CombatWindow();
     rewardWindow = new RewardWindow();
     levelSelectionWindow = new LevelSelectionWindow();
+    defeatWindow = new DefeatWindow();
 
     combatWindow->setUp();
     rewardWindow->setUp();
     addWidget(combatWindow);
     addWidget(rewardWindow);
     addWidget(levelSelectionWindow);
+    addWidget(defeatWindow);
 
+    connect(combatWindow, SIGNAL(championIsDead()), this, SLOT(toDefeatWindow()));
     connect(combatWindow->rewardsButton, SIGNAL(clicked()), this, SLOT(toRewardWindow()));
     connect(rewardWindow->nextLevel, SIGNAL(clicked()), this, SLOT(toLevelSelectionWindow()));
     connect(levelSelectionWindow, SIGNAL(levelSelected(RoomType)), this, SLOT(loadNextLevel(RoomType)));
@@ -37,13 +41,17 @@ void MainWindow::loadPlayerProfile()
 void MainWindow::launchGame()
 {
     loadPlayerProfile();
-    loadAMonster();
-    toCombatWindow();
+    toLevelSelectionWindow();
 }
 
 void MainWindow::toRewardWindow()
 {
     setCurrentWidget(rewardWindow);
+}
+
+void MainWindow::toDefeatWindow()
+{
+    setCurrentWidget(defeatWindow);
 }
 
 void MainWindow::toCombatWindow()
@@ -54,17 +62,6 @@ void MainWindow::toCombatWindow()
 void MainWindow::toLevelSelectionWindow()
 {
     setCurrentWidget(levelSelectionWindow);
-}
-
-void MainWindow::newCombat()
-{
-
-    Boss bos1 = BossCreator::FactoryMethod();
-    shared_ptr<Monster> m1 = make_shared<Boss>(bos1);
-
-    combatWindow->loadDefender(m1);
-    rewardWindow->loadMonsterRewards(m1);
-    combatWindow->refreshFighters();
 }
 
 void MainWindow::loadABoss()
@@ -104,7 +101,6 @@ void MainWindow::loadNextLevel(RoomType type)
     default:
         loadAMonster();
         toCombatWindow();
-
         break;
     }
 }
