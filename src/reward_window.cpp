@@ -56,6 +56,11 @@ void RewardWindow::loadMonsterRewards(shared_ptr<Monster> monster)
         Boss *boss = dynamic_cast<Boss *>(mob);
         QString msg = "Vous obtenez la relique " + QString::fromStdString(boss->getRelicReward().getName());
         relicReward->setText(msg);
+        relicReward->setVisible(true);
+    }
+    else
+    {
+        relicReward->setVisible(false);
     }
     goldReward->setText(QString::number(monster->getGoldReward()) + " pièces d'or");
 }
