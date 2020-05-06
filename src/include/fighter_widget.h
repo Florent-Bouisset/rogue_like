@@ -20,12 +20,16 @@ protected:
     void layoutSetUp();
 
     //Attributes
-    QLabel *HP;
-    QLabel *damage;
+    QFrame *HPWidget;
+    QLabel *HPValue;
+    QLabel *HPIcon;
+
+    QFrame *damageWidget;
+    QLabel *damageValue;
+    QLabel *damageIcon;
+
     QLabel *name;
     QLabel *illustration;
-
-signals:
 };
 
 #endif

@@ -14,16 +14,35 @@ FighterWidget::FighterWidget(QWidget *parent) : QWidget(parent)
 
 void FighterWidget::setUp()
 {
+    damageWidget = new QFrame();
+    QHBoxLayout *damageLayout = new QHBoxLayout();
+    damageIcon = new QLabel();
+    damageValue = new QLabel();
+    damageIcon->setPixmap(QPixmap("image/icons/sword.png"));
+    damageLayout->addWidget(damageIcon);
+    damageLayout->addWidget(damageValue);
+    damageWidget->setLayout(damageLayout);
+    damageWidget->setFixedWidth(300);
+
+    HPWidget = new QFrame();
+    QHBoxLayout *HPLayout = new QHBoxLayout();
+    HPIcon = new QLabel();
+    HPValue = new QLabel();
+    HPIcon->setPixmap(QPixmap("image/icons/heart.png"));
+    HPLayout->addWidget(HPIcon);
+    HPLayout->addWidget(HPValue);
+    HPWidget->setLayout(HPLayout);
+    HPWidget->setFixedWidth(300);
+
     name = new QLabel();
-    damage = new QLabel();
-    HP = new QLabel();
+
     illustration = new QLabel();
 
     QVBoxLayout *layout = new QVBoxLayout();
     layout->addWidget(illustration);
     layout->addWidget(name);
-    layout->addWidget(HP);
-    layout->addWidget(damage);
+    layout->addWidget(HPWidget);
+    layout->addWidget(damageWidget);
 
     setLayout(layout);
     layoutSetUp();
@@ -34,23 +53,23 @@ void FighterWidget::layoutSetUp()
     //Alignements
     illustration->setAlignment(Qt::AlignCenter);
     name->setAlignment(Qt::AlignCenter);
-    HP->setAlignment(Qt::AlignCenter);
-    damage->setAlignment(Qt::AlignCenter);
+    HPValue->setAlignment(Qt::AlignCenter);
+    damageValue->setAlignment(Qt::AlignCenter);
 
     //Font Size
     QFont font = name->font();
     font.setPointSize(30);
     name->setFont(font);
-    HP->setFont(font);
-    damage->setFont(font);
+    HPValue->setFont(font);
+    damageValue->setFont(font);
 
-    this->setFixedSize(350, 600);
+    this->setFixedSize(400, 650);
 }
 
 void FighterWidget::printFighter(Fighter fighter)
 {
     name->setText(QString::fromStdString(fighter.getName()));
-    HP->setText(QString::number(fighter.getHP()) + " / " + QString::number(fighter.getMaxHP()));
-    damage->setText(QString::number(fighter.getDamage()));
+    HPValue->setText(QString::number(fighter.getHP()) + " / " + QString::number(fighter.getMaxHP()));
+    damageValue->setText(QString::number(fighter.getDamage()));
     illustration->setPixmap(QPixmap(QString::fromStdString(fighter.getIllustrationPath())));
 }
