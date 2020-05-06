@@ -12,6 +12,7 @@ public:
 
 private:
     QLabel *title;
+    QLabel *image;
 };
 
 #endif

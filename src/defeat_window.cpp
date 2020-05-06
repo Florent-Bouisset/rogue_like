@@ -1,6 +1,7 @@
 #include "include/defeat_window.h"
 
 #include <QVBoxLayout>
+#include <QMovie>
 
 using namespace std;
 
@@ -12,8 +13,15 @@ DefeatWindow::DefeatWindow()
     font.setPointSize(40);
     title->setFont(font);
 
+    image = new QLabel();
+    QMovie *movie = new QMovie("image/screen/death_dance.gif");
+    image->setMovie(movie);
+    movie->start();
+    image->setAlignment(Qt::AlignCenter);
+
     QVBoxLayout *layout = new QVBoxLayout();
     layout->addWidget(title);
+    layout->addWidget(image);
     setLayout(layout);
 }
 
